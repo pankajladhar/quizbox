@@ -9,7 +9,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Welcome to Online Editor</h1>
+            <h1 className="App-title">Online Quiz Builder</h1>
           </header>
           <main className="container">
             <Route exact path="/" component={Settings} />

@@ -7,8 +7,8 @@ class Button extends PureComponent {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
-        this.props.onClick();
+    handleClick(e) {
+        this.props.onClick(e);
     }
 
     render() {

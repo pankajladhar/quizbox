@@ -1,12 +1,14 @@
 import firebase from 'firebase';
+import Configuration from './../Configuration';
+
 
 let config = {
-    apiKey: "AIzaSyDSCvkaJk7Lqq0ZiBkVpniJOz3yGgblrdk",
-    authDomain: "butiltwithreact.firebaseapp.com",
-    databaseURL: "https://butiltwithreact.firebaseio.com",
-    projectId: "butiltwithreact",
-    storageBucket: "butiltwithreact.appspot.com",
-    messagingSenderId: "614492701919"
+    apiKey: Configuration.FireBaseConfiguration.apiKey,
+    authDomain: Configuration.FireBaseConfiguration.authDomain,
+    databaseURL: Configuration.FireBaseConfiguration.databaseURL,
+    projectId: Configuration.FireBaseConfiguration.projectId,
+    storageBucket: Configuration.FireBaseConfiguration.storageBucket,
+    messagingSenderId: Configuration.FireBaseConfiguration.messagingSenderId
 };
 
 let FirebaseReact = firebase.initializeApp(config);
@@ -20,19 +22,8 @@ let UpdateInFirebase = (dbRef, key, obj) => {
     // return FirebaseReact.database().ref(dbRef).once('value')
 }
 
-let WriteInFirebase = (dbRef) => {
-    let data =    {
-        "githubId": "galeel",
-        "githuburl": "https://pankajladhar.github.io/react-logo-generator",
-        "name": "React Logo Generator",
-        "thumb": "/projects/my-app/thumb",
-        "desc": "This is Play Area to Change to generate React Logo with different colors",
-        "twitterId": "pankajladhar",
-        "submissionDate": "2017 Sept 15",
-        "exp": "pankaj"
-    }
-    FirebaseReact.database().ref(dbRef).push(data);
+let WriteInFirebase = (data, dbRef) => {
+    return FirebaseReact.database().ref(dbRef).push(data);
 }
-// WriteInFirebase('reactweb');
 
-export { ReadFromFirebase, UpdateInFirebase };
+export { ReadFromFirebase, UpdateInFirebase, WriteInFirebase };

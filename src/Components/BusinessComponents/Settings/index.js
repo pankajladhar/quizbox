@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+
+import { WriteInFirebase } from './../../../Firebase';
+
 import TextBox from './../../BaseComponents/TextBox';
 import Button from './../../BaseComponents/Button';
 import Label from './../../BaseComponents/Label';
@@ -45,7 +48,9 @@ class Settings extends PureComponent {
 
     handleSaveClick(e) {
         e.preventDefault()
-        console.log(this.state)
+        WriteInFirebase(this.state, "settings").then((snap)=>{
+            console.log(snap.key)
+        });
     }
 
 
