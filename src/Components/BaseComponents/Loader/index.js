@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import './Loader.css';
 
 class Loader extends PureComponent {
     render() {
         return (
             <div className="Loader">
-                quiz is loading please wait....
+                <div className="Loader__Content">
+                    quiz is loading please wait....
+                </div>
             </div>
         );
     }

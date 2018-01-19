@@ -1,0 +1,25 @@
+.Header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+
+  header {
+    display: flex;
+  }
+
+  .Header__title{
+    margin: 0;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .Header__Logo {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+}

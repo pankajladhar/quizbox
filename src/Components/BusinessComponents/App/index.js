@@ -9,14 +9,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Online Quiz Builder</h1>
-          </header>
-          <main className="container">
-            <Route exact path="/" component={Settings} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/quiz/:quizID" component={Quiz} />
-          </main>
+          <Route exact path="/" component={Settings} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/quiz/:quizID" component={Quiz} />
         </div>
       </Router>
     );

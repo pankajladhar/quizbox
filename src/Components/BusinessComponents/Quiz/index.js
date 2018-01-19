@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Loader from './../../BaseComponents/Loader';
 import Question from './../../BaseComponents/Question';
+import Header from './../../BaseComponents/Header';
 import { ReadFromFirebase } from './../../../Firebase';
 import { uniqNumber } from './../../../Helpers';
 
@@ -76,8 +77,16 @@ class Quiz extends PureComponent {
     render() {
         return (
             <div className="Quiz">
-                <h1>Quiz</h1>
-                {this.state.questions.length > 0 ? this.renderQuestions() : this.renderLoader()}
+                {this.state.questions.length > 0 ?
+                    <div>
+                        <Header title={this.state.companyName}
+                            logoUrl={this.state.logoUrl}
+                        />
+                        <main className="container">
+                            {this.renderQuestions()}
+                        </main>
+                    </div>
+                    : this.renderLoader()}
             </div>
         );
     }
