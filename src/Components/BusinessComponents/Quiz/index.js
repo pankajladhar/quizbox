@@ -37,11 +37,12 @@ class Quiz extends PureComponent {
             let uniqueArray = uniqNumber(
                 {
                     min: 0,
-                    max: 10,
+                    max: 9,
                     count: Number(res.noOfques),
                     sort: 'asc'
                 }
             )
+            console.log(uniqueArray)
             fetch(res.quesUrl)
                 .then((res) => {
                     return res.json()

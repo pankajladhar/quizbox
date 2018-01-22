@@ -5,9 +5,9 @@ import './Answer.css';
 
 class Answer extends Component {
     constructor(props) {
-        super(props);
-        
+        super(props);  
     }
+    
     render() {
         return (
             <div className={`Answer ${this.props.checked ? 'checked' : 'unchecked'}`}>

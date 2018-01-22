@@ -17,7 +17,21 @@ class Question extends PureComponent {
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleOnChange = this.handleOnChange.bind(this);
+        this.getResults = this.getResults.bind(this);
     }
+
+    getResults() {
+        let correctAnswerCount = 0
+        this.state.userAnswers.forEach(element => {
+            this.state.data.forEach((item)=>{
+                if(item.question == element.question && item.correctAnswer === element.answer ) {
+                    correctAnswerCount = correctAnswerCount + 1;
+                }
+            }) 
+        });
+        return correctAnswerCount;
+    }
+
 
     handleClick() {
         this.setState({
@@ -33,7 +47,8 @@ class Question extends PureComponent {
             checkedId : val.id,
             userSelection: {
                 id : val.id,
-                answer : val.data
+                answer : val.data,
+                question: this.state.data[this.state.index].question
             }
         });
     }
@@ -64,7 +79,7 @@ class Question extends PureComponent {
     }
 
     _renderResult() {
-        return <Results />
+        return <Results data={this.getResults()}/>
     }
 
     render() {

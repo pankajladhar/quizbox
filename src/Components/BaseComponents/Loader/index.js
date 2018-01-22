@@ -7,7 +7,7 @@ class Loader extends PureComponent {
         return (
             <div className="Loader">
                 <div className="Loader__Content">
-                    quiz is loading please wait....
+                    quiz is loading please wait ....
                 </div>
             </div>
         );

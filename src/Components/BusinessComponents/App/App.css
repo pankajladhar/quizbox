@@ -4,7 +4,8 @@ html, body {
 
 body {
   font-family: Oswald, sans-serif;
-  background-color: #1b2133; }
+  background-color: #1b2133;
+  color: #fff; }
 
 .container {
   width: 100%;

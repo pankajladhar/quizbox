@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders correctly with mandatory params 1`] = `
+<label
+  className="Label "
+  htmlFor="htmlFor"
+>
+  some text
+</label>
+`;
+
+exports[`Label renders correctly with optional params 1`] = `
+<label
+  className="Label someClass"
+  htmlFor="htmlFor"
+>
+  some text
+</label>
+`;

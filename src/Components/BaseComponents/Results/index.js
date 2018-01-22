@@ -5,7 +5,9 @@ class Results extends PureComponent {
     render() {
         return (
             <div>
-                Results
+                Results 
+                Correct Answer
+                {this.props.data}
             </div>
         );
     }
