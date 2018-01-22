@@ -9,4 +9,24 @@
   &:hover {
     border: 1px #fff solid;
   }
+
+  &.checked {
+    border: 1px #349284 solid;
+    &:hover {
+      border: 1px #349284 solid;
+    }
+  }
+
+  .RadioButton {
+    margin-left: 15px;
+    width: 100%;
+    input[type="radio"] {
+      display: none;
+    }
+    label {
+      margin: 0;
+      display: flex;
+      cursor: pointer;;
+    }
+  }
 }

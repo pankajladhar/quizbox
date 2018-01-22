@@ -11,14 +11,31 @@ class Question extends PureComponent {
         this.state = {
             data: this.props.questions,
             index: 0,
+            checkedId: undefined,
+            userSelection: {},
+            userAnswers: []
         }
         this.handleClick = this.handleClick.bind(this);
+        this.handleOnChange = this.handleOnChange.bind(this);
     }
 
     handleClick() {
         this.setState({
-            index: this.state.index + 1
+            index: this.state.index + 1,
+            checkedId: undefined,
+            userAnswers: [...this.state.userAnswers, this.state.userSelection]
         })
+    }
+
+
+    handleOnChange(val) {
+        this.setState({
+            checkedId : val.id,
+            userSelection: {
+                id : val.id,
+                answer : val.data
+            }
+        });
     }
 
     _renderQuestions() {
@@ -31,7 +48,12 @@ class Question extends PureComponent {
                     {
                         this.state.data[this.state.index].answers.map((item, index) => {
                             return (
-                                <Answer index={index} data={item} />
+                                <Answer index={index}
+                                    checked={`answer-${index}` === this.state.checkedId ? true: false}
+                                    id={`answer-${index}`}
+                                    key={`answer-${index}`}
+                                    onChange={this.handleOnChange}
+                                    data={item} />
                             )
                         })
                     }

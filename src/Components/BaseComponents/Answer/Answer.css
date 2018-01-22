@@ -7,3 +7,16 @@
   margin-bottom: 20px; }
   .Answer:hover {
     border: 1px #fff solid; }
+  .Answer.checked {
+    border: 1px #349284 solid; }
+    .Answer.checked:hover {
+      border: 1px #349284 solid; }
+  .Answer .RadioButton {
+    margin-left: 15px;
+    width: 100%; }
+    .Answer .RadioButton input[type="radio"] {
+      display: none; }
+    .Answer .RadioButton label {
+      margin: 0;
+      display: flex;
+      cursor: pointer; }
