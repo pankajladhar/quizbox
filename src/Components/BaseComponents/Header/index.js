@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className="Header">
                 <header className="container">
-                    <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title}/>
+                    {this.props.logoUrl && <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />}
                     <h1 className="Header__title">{this.props.title}</h1>
                 </header>
             </div>
@@ -17,7 +17,7 @@ class Header extends Component {
 
 Header.defaultProps = {
     title: "Online Quiz Builder",
-    logoUrl: "https://getbootstrap.com/assets/img/favicons/apple-touch-icon.png"
+    logoUrl: ""
 }
 
 Header.propTypes = {

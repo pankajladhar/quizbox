@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import RadioButton from './../RadioButton';
 import Results from './../Results';
 import Button from './../Button';
+import Answer from './../Answer';
+import './Question.css';
 
 class Question extends PureComponent {
     constructor(props) {
@@ -22,14 +23,20 @@ class Question extends PureComponent {
 
     _renderQuestions() {
         return (
-            <div>
-                <h2>{this.state.data[this.state.index].question}</h2>
-                {
-                    this.state.data[this.state.index].answers.map((item, index) => {
-                        return <RadioButton key={`answer-${index}`} data={item} />
-                    })
-                }
-                <Button className="btn btn-dark" value="Next" onClick={this.handleClick} />
+            <div className="Question__Wrapper">
+                <div className="Question__LeftPanel Question--Panel">
+                    {this.state.data[this.state.index].question}
+                </div>
+                <div className="Question__RightPanel Question--Panel">
+                    {
+                        this.state.data[this.state.index].answers.map((item, index) => {
+                            return (
+                                <Answer index={index} data={item} />
+                            )
+                        })
+                    }
+                    <Button className="btn" value="Next" onClick={this.handleClick} />
+                </div>
             </div>
         )
     }

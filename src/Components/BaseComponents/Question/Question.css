@@ -1,0 +1,37 @@
+.Question .Question__Wrapper {
+  color: #fff;
+  display: flex;
+  width: 100%;
+  min-height: 500px; }
+  .Question .Question__Wrapper .Question--Panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: normal;
+    line-height: 1.5;
+    flex: 1; }
+  .Question .Question__Wrapper .Question__LeftPanel {
+    padding: 20px 30px;
+    background-color: #349284;
+    font-size: 36px; }
+  .Question .Question__Wrapper .Question__RightPanel {
+    position: relative;
+    background-color: #263545;
+    font-size: 30px;
+    padding: 20px; }
+  .Question .Question__Wrapper .RadioButton {
+    margin-left: 15px; }
+    .Question .Question__Wrapper .RadioButton input[type="radio"] {
+      display: none; }
+    .Question .Question__Wrapper .RadioButton label {
+      margin: 0; }
+
+.Question .btn {
+  border: 1px #349284 solid;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; }
+  .Question .btn:hover, .Question .btn:focus {
+    background: #349284; }

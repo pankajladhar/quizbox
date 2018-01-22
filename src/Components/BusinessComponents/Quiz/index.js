@@ -6,6 +6,7 @@ import Question from './../../BaseComponents/Question';
 import Header from './../../BaseComponents/Header';
 import { ReadFromFirebase } from './../../../Firebase';
 import { uniqNumber } from './../../../Helpers';
+import './Quiz.css';
 
 class Quiz extends PureComponent {
     constructor(props) {
@@ -31,15 +32,6 @@ class Quiz extends PureComponent {
     componentDidMount() {
         let quizId = this.props.match.params.quizID
         let dbRef = `settings/${quizId}`
-        /* 
-        
-            answerUrl: "https://raw.githubusercontent.com/pankajladhar/mockjson/master/react.json"
-            companyName : "React Quiz"
-            logoUrl: "https://getbootstrap.com/assets/img/favicons/apple-touch-icon.png"
-            noOfques: "5"
-            quesUrl: "https://raw.githubusercontent.com/pankajladhar/mockjson/master/react.json"
-            totalTime:"5"
-        */
         ReadFromFirebase(dbRef).then((snapshot) => {
             let res = snapshot.val();
             let uniqueArray = uniqNumber(
@@ -79,9 +71,7 @@ class Quiz extends PureComponent {
             <div className="Quiz">
                 {this.state.questions.length > 0 ?
                     <div>
-                        <Header title={this.state.companyName}
-                            logoUrl={this.state.logoUrl}
-                        />
+                        <Header title={this.state.companyName} />
                         <main className="container">
                             {this.renderQuestions()}
                         </main>
