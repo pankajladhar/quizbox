@@ -1,83 +1,163 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { uniqNumber } from './../../../Helpers';
 
+import { ReadFromFirebase } from './../../../Firebase';
 import Loader from './../../BaseComponents/Loader';
 import Question from './../../BaseComponents/Question';
 import Header from './../../BaseComponents/Header';
-import { ReadFromFirebase } from './../../../Firebase';
-import { uniqNumber } from './../../../Helpers';
+import Timer from './../../BaseComponents/Timer';
+import Results from './../../BaseComponents/Results';
 import './Quiz.css';
 
 class Quiz extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            settings: {
+                quesUrl: "",
+                noOfques: "",
+                totalTime: "",
+                quizName: "",
+                point: "",
+            },
             questions: [],
-            logoUrl: "",
-            noOfques: "",
-            totalTime: "",
-            companyName: ""
+            currentQues: 0,
+            userAnswers: []
+        }
+        this.handleTimeOut = this.handleTimeOut.bind(this);
+        this.handleNextClick = this.handleNextClick.bind(this);
+        this.getResults = this.getResults.bind(this);
+    }
 
+    __getSettings(res) {
+        return {
+            quesUrl: res.quesUrl,
+            noOfques: Number(res.noOfques),
+            totalTime: Number(res.totalTime),
+            quizName: res.quizName,
+            point: res.point * Number(res.noOfques)
         }
     }
 
-    _getRandomQuestions(arr, questions) {
+    _getRandomQuestions(questions) {
+        let uniqueArray = uniqNumber(
+            {
+                min: 0,
+                max: Number(questions.length) - 1,
+                count: this.state.settings.noOfques,
+                sort: 'asc'
+            }
+        )
         let questionsArray = [];
-        for (let index = 0; index < arr.length; index++) {
-            questionsArray.push(questions[arr[index]]);
+        for (let index = 0; index < uniqueArray.length; index++) {
+            questionsArray.push(questions[uniqueArray[index]]);
         }
         return questionsArray;
     }
+
+    __setQuestions() {
+        fetch(this.state.settings.quesUrl)
+            .then((res) => res.json())
+            .then((questions) => {
+                this.setState({
+                    questions: this._getRandomQuestions(questions)
+                })
+            })
+    }
+
+    getResults() {
+        let correctAnswerCount = 0
+        this.state.userAnswers.forEach(element => {
+            this.state.data.forEach((item)=>{
+                if(item.question == element.question && item.correctAnswer === element.answer ) {
+                    correctAnswerCount = correctAnswerCount + 1;
+                }
+            }) 
+        });
+        return correctAnswerCount;
+    }
+
 
     componentDidMount() {
         let quizId = this.props.match.params.quizID
         let dbRef = `settings/${quizId}`
         ReadFromFirebase(dbRef).then((snapshot) => {
-            let res = snapshot.val();
-            let uniqueArray = uniqNumber(
-                {
-                    min: 0,
-                    max: 9,
-                    count: Number(res.noOfques),
-                    sort: 'asc'
-                }
-            )
-            console.log(uniqueArray)
-            fetch(res.quesUrl)
-                .then((res) => {
-                    return res.json()
-                })
-                .then((questions) => {
-                    this.setState({
-                        questions: this._getRandomQuestions(uniqueArray, questions),
-                        logoUrl: res.logoUrl,
-                        noOfques: Number(res.noOfques),
-                        totalTime: Number(res.totalTime),
-                        companyName: res.companyName
-                    })
-                })
+            this.setState({
+                settings: this.__getSettings(snapshot.val())
+            }, () => this.__setQuestions())
         })
     }
 
-    renderLoader() {
-        return <Loader />
+    renderComponents = {
+        renderTimer: () => {
+            return (
+                <Timer mins={this.state.settings.totalTime}
+                    onTimeOut={this.handleTimeOut} />
+            )
+        },
+        renderLoader: () => {
+            return <Loader />
+        },
+        renderQuestions: () => {
+            return (
+                <Question data={this.state.questions[this.state.currentQues]}
+                    currentQues={this.state.currentQues}
+                    onNextClick={this.handleNextClick} />
+            )
+        },
+        renderQuizHeader: () => {
+            return (
+                <header>
+                    <div className="Header__Panel">
+                        Question <span className="Current"> {this.state.currentQues + 1} </span> of {this.state.settings.noOfques}
+                    </div>
+                    <h1>
+                        {this.state.settings.quizName}
+                    </h1>
+                    <div className="Header__Panel">
+                        Score<span className="Current">{this.state.settings.point} </span>Points
+                    </div>
+                </header>
+            )
+        },
+        renderResults: () =>{
+            return (
+                <Results />
+            )
+        }
+
     }
 
-    renderQuestions() {
-        return <Question questions={this.state.questions} />
+    handleNextClick(obj) {
+        this.setState({
+            currentQues: this.state.currentQues + 1,
+            userAnswers : [...this.state.userAnswers, obj]
+        });
+    }
+
+    handleTimeOut() {
+        console.log("timed out")
     }
 
     render() {
+        const { renderTimer, renderQuizHeader, renderQuestions, renderLoader, renderResults } = this.renderComponents
         return (
             <div className="Quiz">
                 {this.state.questions.length > 0 ?
                     <div>
-                        <Header title={this.state.companyName} />
                         <main className="container">
-                            {this.renderQuestions()}
+                            {this.state.currentQues !== this.state.settings.noOfques ? 
+                                <div>
+                                    {renderTimer()}
+                                    {renderQuizHeader()}
+                                    {renderQuestions()}
+                                </div>
+                                : renderResults()
+                            }
                         </main>
                     </div>
-                    : this.renderLoader()}
+                    : renderLoader()}
             </div>
         );
     }

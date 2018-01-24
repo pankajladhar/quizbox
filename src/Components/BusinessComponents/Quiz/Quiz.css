@@ -1,0 +1,17 @@
+.Quiz header {
+  display: flex;
+  padding: 20px 10px;
+  justify-content: center;
+  align-items: center; }
+  .Quiz header h1 {
+    margin: 0 auto; }
+
+.Quiz .Header__Panel {
+  text-align: center; }
+
+.Quiz .Current {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: normal;
+  padding: 0 10px; }

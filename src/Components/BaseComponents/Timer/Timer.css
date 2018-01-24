@@ -1,0 +1,25 @@
+.Timer {
+  color: #fff;
+  display: flex;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+  position: fixed;
+  right: 10px;
+  top: 10px; }
+  .Timer .Timer__Item {
+    padding: 5px 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background: #00BF96;
+    display: inline-block;
+    display: flex;
+    flex-direction: column; }
+  .Timer span {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: #00816A;
+    display: inline-block; }
+  .Timer .smalltext {
+    font-size: 16px;
+    padding-bottom: 0; }
