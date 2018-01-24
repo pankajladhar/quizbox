@@ -23,18 +23,23 @@ class Quiz extends PureComponent {
             },
             questions: [],
             currentQues: 0,
-            userAnswers: []
+            userAnswers: [],
+            timeOut : false
         }
         this.handleTimeOut = this.handleTimeOut.bind(this);
-        this.handleNextClick = this.handleNextClick.bind(this);
-        this.getResults = this.getResults.bind(this);
+        this.handleNextClick = this.handleNextClick.bind(this);        
+        this.isLastQuestion = this.isLastQuestion.bind(this);
+    }
+
+    isLastQuestion() {
+        return this.state.currentQues === this.state.settings.noOfques ? true : false 
     }
 
     __getSettings(res) {
         return {
             quesUrl: res.quesUrl,
             noOfques: Number(res.noOfques),
-            totalTime: Number(res.totalTime),
+            totalTime: Number(res.totalTime) * 60,
             quizName: res.quizName,
             point: res.point * Number(res.noOfques)
         }
@@ -66,19 +71,6 @@ class Quiz extends PureComponent {
             })
     }
 
-    getResults() {
-        let correctAnswerCount = 0
-        this.state.userAnswers.forEach(element => {
-            this.state.data.forEach((item)=>{
-                if(item.question == element.question && item.correctAnswer === element.answer ) {
-                    correctAnswerCount = correctAnswerCount + 1;
-                }
-            }) 
-        });
-        return correctAnswerCount;
-    }
-
-
     componentDidMount() {
         let quizId = this.props.match.params.quizID
         let dbRef = `settings/${quizId}`
@@ -109,21 +101,30 @@ class Quiz extends PureComponent {
         renderQuizHeader: () => {
             return (
                 <header>
-                    <div className="Header__Panel">
-                        Question <span className="Current"> {this.state.currentQues + 1} </span> of {this.state.settings.noOfques}
-                    </div>
+                    {
+                        !this.isLastQuestion() &&
+                        <div className="Header__Panel">
+                            Question <span className="Current"> {this.state.currentQues + 1} </span> of {this.state.settings.noOfques}
+                        </div>
+                    }
                     <h1>
                         {this.state.settings.quizName}
                     </h1>
-                    <div className="Header__Panel">
-                        Score<span className="Current">{this.state.settings.point} </span>Points
-                    </div>
+                    {
+                        !this.isLastQuestion() &&
+                        <div className="Header__Panel">
+                            Score<span className="Current">{this.state.settings.point} </span>Points
+                        </div>
+                    }
                 </header>
             )
         },
-        renderResults: () =>{
+        renderResults: () => {
             return (
-                <Results />
+                <Results
+                    noOfques={this.state.settings.noOfques}
+                    userAnswers={this.state.userAnswers}
+                />
             )
         }
 
@@ -132,12 +133,14 @@ class Quiz extends PureComponent {
     handleNextClick(obj) {
         this.setState({
             currentQues: this.state.currentQues + 1,
-            userAnswers : [...this.state.userAnswers, obj]
+            userAnswers: [...this.state.userAnswers, obj]
         });
     }
 
     handleTimeOut() {
-        console.log("timed out")
+        this.setState({
+            timeOut: true
+        })
     }
 
     render() {
@@ -147,10 +150,10 @@ class Quiz extends PureComponent {
                 {this.state.questions.length > 0 ?
                     <div>
                         <main className="container">
-                            {this.state.currentQues !== this.state.settings.noOfques ? 
+                            {renderQuizHeader()}
+                            {!this.isLastQuestion() ? // && !this.state.timeOut
                                 <div>
                                     {renderTimer()}
-                                    {renderQuizHeader()}
                                     {renderQuestions()}
                                 </div>
                                 : renderResults()

@@ -28,7 +28,8 @@ class Question extends PureComponent {
             checkedId : val.id,
             userSelection: {
                 answer : val.data,
-                question: this.props.data.question
+                question: this.props.data.question,
+                correctAnswer: this.props.data.correctAnswer
             }
         });
     }

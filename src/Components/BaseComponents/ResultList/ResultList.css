@@ -1,0 +1,13 @@
+.ResultList {
+  border-bottom: 1px #fff solid;
+  padding: 40px 0px; }
+  .ResultList h2 {
+    margin-top: 0; }
+  .ResultList .ResultList__Item span {
+    font-size: 20px;
+    display: inline-block;
+    padding-right: 10px; }
+    .ResultList .ResultList__Item span.ResultList__Item--Correct {
+      color: #14a51b; }
+    .ResultList .ResultList__Item span.ResultList__Item--Wrong {
+      color: #dc1414; }

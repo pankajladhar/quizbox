@@ -1,0 +1,24 @@
+.ResultList {
+  border-bottom: 1px #fff solid;
+  padding: 40px 0px;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .ResultList__Item {
+    span {
+      font-size: 20px;
+      display: inline-block;
+      padding-right: 10px;
+
+      &.ResultList__Item--Correct {
+        color: #14a51b;
+      }
+
+      &.ResultList__Item--Wrong {
+        color: #dc1414;
+      }
+    }
+  }
+}

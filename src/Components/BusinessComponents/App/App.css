@@ -34,3 +34,8 @@ body {
   font-size: 16px;
   color: #fff;
   padding: 10px; }
+
+.btn {
+  border: 1px #349284 solid; }
+  .btn:hover, .btn:focus {
+    background: #349284; }
