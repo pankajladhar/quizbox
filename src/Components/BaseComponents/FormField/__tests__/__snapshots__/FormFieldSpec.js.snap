@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormField renders correctly with mandatory and optional params 1`] = `
+<div
+  className="FormField SomeClass"
+>
+  <h1>
+    Some Children
+  </h1>
+</div>
+`;
+
+exports[`FormField renders correctly with mandatory params 1`] = `
+<div
+  className="FormField "
+>
+  <h1>
+    Some Children
+  </h1>
+</div>
+`;

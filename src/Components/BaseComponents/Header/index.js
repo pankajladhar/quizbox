@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className="Header">
                 <header className="container">
-                    {this.props.logoUrl && <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />}
+                    <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />
                     <h1 className="Header__title">{this.props.title}</h1>
                 </header>
             </div>
@@ -15,14 +15,9 @@ class Header extends Component {
     }
 }
 
-Header.defaultProps = {
-    title: "Online Quiz Builder",
-    logoUrl: ""
-}
-
 Header.propTypes = {
-    title: PropTypes.string,
-    logoUrl: PropTypes.string
+    title: PropTypes.string.isRequired,
+    logoUrl: PropTypes.string.isRequired
 };
 
 export default Header;

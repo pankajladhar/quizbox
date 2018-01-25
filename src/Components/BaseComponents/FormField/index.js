@@ -17,6 +17,7 @@ FormField.defaultProps =  {
 
 FormField.propTypes = {
     className: PropTypes.string,
+    children: PropTypes.any.isRequired,
 };
 
 export default FormField;

@@ -1,9 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
 import Answer from './../index';
 
-describe.only('Answer', () => {
+describe('Answer', () => {
     let answerProps = {}
     beforeEach(() => {
         answerProps = {
