@@ -11,14 +11,15 @@ class Results extends PureComponent {
         this.state = {
             showAnswers: false
         }
-        this.getResults = this.getResults.bind(this);
+        this.getCorrectAnswerCount = this.getCorrectAnswerCount.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.getWrongAnswer = this.getWrongAnswer.bind(this);
     }
 
-    getResults() {
+    getCorrectAnswerCount(answers) {
         let correctAnswerCount = 0
         let resultListArray = [];
-        this.props.userAnswers.forEach(element => {
+        answers.forEach(element => {
             if (element.correctAnswer === element.answer) {
                 correctAnswerCount = correctAnswerCount + 1;
             }
@@ -43,10 +44,10 @@ class Results extends PureComponent {
             <div className="Results">
                 <div className="Results__TopPanel">
                     <span className="Results__TopPanel__CorrectCount">
-                        {this.getResults()} out of {this.props.noOfques} are correct answer
+                        {this.getCorrectAnswerCount(this.props.userAnswers)} out of {this.props.noOfques} are correct answer
                     </span>
                     <span className="Results__TopPanel__Percentage">
-                        {(this.getResults() / this.props.noOfques) * 100} %
+                        {(this.getCorrectAnswerCount(this.props.userAnswers) / this.props.noOfques) * 100} %
                     </span>
                     <Button className="btn"
                         onClick={this.handleClick}
@@ -55,9 +56,10 @@ class Results extends PureComponent {
                 {
                     this.state.showAnswers && <div className="ResultList__Wrapper">
                         {
-                            this.getWrongAnswer(this.props.userAnswers).map((item) => {
+                            this.getWrongAnswer(this.props.userAnswers).map((item ,index) => {
                                 return (
                                     <ResultList question={item.question}
+                                        key={`ResultList-${index}`}
                                         userAnswer={item.answer}
                                         correctAnswer={item.correctAnswer} />
                                 )
@@ -71,7 +73,12 @@ class Results extends PureComponent {
 }
 
 Results.propTypes = {
-
+    noOfques: PropTypes.number.isRequired,
+    userAnswers: PropTypes.arrayOf(PropTypes.shape({
+        question: PropTypes.string.isRequired,
+        answer: PropTypes.string.isRequired,
+        correctAnswer: PropTypes.string.isRequired,
+    }))
 };
 
 export default Results;

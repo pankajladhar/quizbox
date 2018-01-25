@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results renders correctly 1`] = `
+<div
+  className="Results"
+>
+  <div
+    className="Results__TopPanel"
+  >
+    <span
+      className="Results__TopPanel__CorrectCount"
+    >
+      1
+       out of 
+      2
+       are correct answer
+    </span>
+    <span
+      className="Results__TopPanel__Percentage"
+    >
+      50
+       %
+    </span>
+    <button
+      className="Button btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Get Correct Answer
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Results renders correctly with result list 1`] = `
+<div
+  className="Results"
+>
+  <div
+    className="Results__TopPanel"
+  >
+    <span
+      className="Results__TopPanel__CorrectCount"
+    >
+      1
+       out of 
+      2
+       are correct answer
+    </span>
+    <span
+      className="Results__TopPanel__Percentage"
+    >
+      50
+       %
+    </span>
+    <button
+      className="Button btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Get Correct Answer
+    </button>
+  </div>
+  <div
+    className="ResultList__Wrapper"
+  >
+    <div
+      className="ResultList"
+    >
+      <h2>
+        Q. 
+        Question 2
+      </h2>
+      <div
+        className="ResultList__Item"
+      >
+        <span>
+          You Answered
+        </span>
+        <span
+          className="ResultList__Item--Wrong"
+        >
+          Answer 2
+        </span>
+      </div>
+      <div
+        className="ResultList__Item"
+      >
+        <span>
+          Correct Answer
+        </span>
+        <span
+          className="ResultList__Item--Correct"
+        >
+          Correct Answer 2
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
