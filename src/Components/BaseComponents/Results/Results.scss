@@ -1,2 +1,19 @@
 .Results {
+  .Results__TopPanel {
+    text-align: center;
+    span {
+      display: block;
+      padding-bottom: 10px;
+
+      &.Results__TopPanel__CorrectCount {
+        font-size: 20px;
+      }
+
+      &.Results__TopPanel__Percentage {
+        font-size: 30px;
+        line-height: 1;
+        color: #349284;
+      }
+    }
+  }
 }

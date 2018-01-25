@@ -7,17 +7,18 @@
   }
 
   .ResultList__Item {
+    padding-left: 20px;
     span {
       font-size: 20px;
       display: inline-block;
       padding-right: 10px;
 
       &.ResultList__Item--Correct {
-        color: #14a51b;
+        color: #4CAF50;
       }
 
       &.ResultList__Item--Wrong {
-        color: #dc1414;
+        color: #f44336;
       }
     }
   }
