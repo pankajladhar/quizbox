@@ -24,7 +24,7 @@ class RadioButton extends PureComponent {
                     type="radio"
                     id={this.props.id}
                     name="answers"/>
-                <Label htmlFor={this.props.id} text={this.props.data} />
+                <Label htmlFor={this.props.id} text={this.props.text} />
             </div>
         );
     }

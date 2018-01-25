@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Answer renders correctly 1`] = `
+<div
+  className="Answer checked"
+>
+  <span>
+    NaN
+    .
+  </span>
+  <div
+    className="RadioButton"
+  >
+    <input
+      checked={true}
+      id="Answer"
+      name="answers"
+      onChange={[Function]}
+      type="radio"
+    />
+    <label
+      className="Label "
+      htmlFor="Answer"
+    >
+      some string
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Answer renders correctly when checked is false 1`] = `
+<div
+  className="Answer unchecked"
+>
+  <span>
+    NaN
+    .
+  </span>
+  <div
+    className="RadioButton"
+  >
+    <input
+      checked={false}
+      id="Answer"
+      name="answers"
+      onChange={[Function]}
+      type="radio"
+    />
+    <label
+      className="Label "
+      htmlFor="Answer"
+    >
+      some string
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Answer renders correctly when checked is true 1`] = `
+<div
+  className="Answer checked"
+>
+  <span>
+    NaN
+    .
+  </span>
+  <div
+    className="RadioButton"
+  >
+    <input
+      checked={true}
+      id="Answer"
+      name="answers"
+      onChange={[Function]}
+      type="radio"
+    />
+    <label
+      className="Label "
+      htmlFor="Answer"
+    >
+      some string
+    </label>
+  </div>
+</div>
+`;

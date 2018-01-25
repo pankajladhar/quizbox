@@ -4,10 +4,6 @@ import RadioButton from './../RadioButton';
 import './Answer.css';
 
 class Answer extends Component {
-    constructor(props) {
-        super(props);  
-    }
-    
     render() {
         return (
             <div className={`Answer ${this.props.checked ? 'checked' : 'unchecked'}`}>
@@ -16,14 +12,18 @@ class Answer extends Component {
                     checked={this.props.checked}
                     id={this.props.id}
                     onChange={this.props.onChange}
-                    data={this.props.data} />
+                    text={this.props.data} />
             </div>
         );
     }
 }
 
 Answer.propTypes = {
-
+    index: PropTypes.number.isRequired,
+    checked: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    data: PropTypes.string.isRequired
 };
 
 export default Answer;
