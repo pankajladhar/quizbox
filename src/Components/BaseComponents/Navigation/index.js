@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './Navigation.css';
@@ -8,9 +9,9 @@ class Navigation extends Component {
         return (
             <nav className="Navigation">
                 <ul>
-                    <li><a href="#">How to Configure</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Sample</a></li>
+                    <li><Link to="/">How to Configure</Link></li>
+                    <li><Link to="/Settings">Settings</Link></li>
+                    <li><Link to="/">Sample</Link></li>
                 </ul>
             </nav>
         );
