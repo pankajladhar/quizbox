@@ -1,0 +1,10 @@
+.Navigation ul {
+  display: flex;
+  color: #fff; }
+  .Navigation ul li a {
+    color: inherit;
+    display: block;
+    margin-left: 20px;
+    text-decoration: none; }
+    .Navigation ul li a:hover {
+      text-decoration: underline; }

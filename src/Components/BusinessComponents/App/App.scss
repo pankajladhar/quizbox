@@ -15,8 +15,8 @@ body {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  // padding-right: 15px;
+  // padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   @media (min-width: 576px) {
@@ -57,4 +57,10 @@ body {
 
 .App, #root {
   height: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

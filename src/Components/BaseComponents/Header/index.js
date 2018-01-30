@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Navigation from './../Navigation';
 import './Header.css'
 
 class Header extends Component {
@@ -7,8 +8,11 @@ class Header extends Component {
         return (
             <div className="Header">
                 <header className="container">
-                    <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />
-                    <h1 className="Header__title">{this.props.title}</h1>
+                    <div className="Header__Branding">
+                        <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />
+                        {this.props.title && <h1 className="Header__title">{this.props.title}</h1>}
+                    </div>
+                    <Navigation />
                 </header>
             </div>
         );

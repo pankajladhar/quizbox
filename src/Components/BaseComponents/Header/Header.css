@@ -1,7 +1,11 @@
 .Header {
-  padding: 20px;
+  padding: 10px;
   color: white; }
   .Header header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .Header .Header__Branding {
     display: flex; }
   .Header .Header__title {
     margin: 0;
@@ -10,7 +14,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1; }
+    flex: 1;
+    margin-left: 10px; }
   .Header .Header__Logo {
     display: inline-block;
     width: 40px;

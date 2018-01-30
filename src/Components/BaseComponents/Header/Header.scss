@@ -1,12 +1,18 @@
 .Header {
-  padding: 20px;
+  padding: 10px;
   color: white;
 
   header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .Header__title{
+  .Header__Branding {
+    display: flex;
+  }
+
+  .Header__title {
     margin: 0;
     font-size: 25px;
     text-align: center;
@@ -14,6 +20,7 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+    margin-left: 10px;
   }
 
   .Header__Logo {
