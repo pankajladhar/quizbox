@@ -9,7 +9,9 @@
   }
 
   .Header__Branding {
-    display: flex;
+    a {
+      display: flex;
+    }
   }
 
   .Header__title {

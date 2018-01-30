@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center; }
-  .Header .Header__Branding {
+  .Header .Header__Branding a {
     display: flex; }
   .Header .Header__title {
     margin: 0;

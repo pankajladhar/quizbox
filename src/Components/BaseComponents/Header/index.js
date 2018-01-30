@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Navigation from './../Navigation';
 import './Header.css'
 
@@ -9,8 +10,10 @@ class Header extends Component {
             <div className="Header">
                 <header className="container">
                     <div className="Header__Branding">
-                        <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />
-                        {this.props.title && <h1 className="Header__title">{this.props.title}</h1>}
+                        <Link to="/">
+                            <img className="Header__Logo" src={this.props.logoUrl} alt={this.props.title} />
+                            {this.props.title && <h1 className="Header__title">{this.props.title}</h1>}
+                        </Link>
                     </div>
                     <Navigation />
                 </header>

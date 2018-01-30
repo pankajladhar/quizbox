@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 class Home extends PureComponent {
@@ -8,7 +9,7 @@ class Home extends PureComponent {
             <div className="Home">
                 <h1>Quizbox - Online quiz builder</h1>
                 <h2>Build your own quiz and share with others</h2>
-                <a href="">Configure Quiz</a>
+                <Link to="/configure">Configure Quiz</Link>
             </div>
         );
     }

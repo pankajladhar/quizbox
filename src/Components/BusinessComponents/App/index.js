@@ -12,7 +12,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" render={(props) => <Layout><Home /></Layout>} />
-          <Route path="/settings" render={(props) => <Layout><Settings /></Layout>} />
+          <Route path="/configure" render={(props) => <Layout><Settings /></Layout>} />
           <Route path="/quiz/:quizID" component={Quiz} />
         </div>
       </Router>
