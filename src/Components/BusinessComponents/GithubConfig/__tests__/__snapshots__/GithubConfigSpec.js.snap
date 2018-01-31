@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GithubConfig renders correctly 1`] = `
+<div
+  className="GithubConfig"
+>
+  <h2>
+    How to configure using github
+  </h2>
+  <h3>
+     Assumption :
+  </h3>
+  <div>
+    You have pushed
+    <span
+      className="GithubConfig__FileName"
+    >
+      react_new.json
+    </span>
+    file in one of your repository.
+  </div>
+  <div>
+    * extension of file must be 
+    <span
+      className="GithubConfig__FileName"
+    >
+      .json
+    </span>
+    and validate json.
+  </div>
+  <h3>
+    Step 1
+  </h3>
+  <img
+    alt="step1"
+    src="step-1.png"
+  />
+  <h3>
+    Step 2
+  </h3>
+  <img
+    alt="step2"
+    src="step-2.png"
+  />
+  <h3>
+    Step 3
+  </h3>
+  <img
+    alt="step3"
+    src="step-3.png"
+  />
+</div>
+`;
