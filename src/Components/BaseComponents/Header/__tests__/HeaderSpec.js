@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { StaticRouter, MemoryRouter as Router, } from 'react-router-dom'
 import Header from './../index';
 
 describe('Header', () => {
@@ -13,7 +14,9 @@ describe('Header', () => {
 
     it('renders correctly', () => {
         let tree = renderer.create(
-            <Header {...headerProps} />
+            <StaticRouter location="someLocation" context={{}}>
+                <Header {...headerProps} />
+            </StaticRouter>
         ).toJSON();
         expect(tree).toMatchSnapshot();
     });

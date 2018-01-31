@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsHint renders correctly 1`] = `
+<div
+  className="SettingsHint"
+>
+  <div
+    className="SettingsHint__List"
+  >
+    <span
+      className="SettingsHint__List__Count"
+    >
+      ✔
+    </span>
+    <span
+      className="SettingsHint__List__StepName"
+    >
+      Quiz title
+    </span>
+    <span
+      className="SettingsHint__List__Description"
+    >
+      This is will be shown in header. It is optional, can be empty. In case of empty it will show  Quizbox
+    </span>
+  </div>
+  <div
+    className="SettingsHint__List"
+  >
+    <span
+      className="SettingsHint__List__Count"
+    >
+      ✔
+    </span>
+    <span
+      className="SettingsHint__List__StepName"
+    >
+      Question url
+    </span>
+    <span
+      className="SettingsHint__List__Optional"
+    >
+      optional
+    </span>
+    <span
+      className="SettingsHint__List__Description"
+    >
+      This will be used to fetch questions. This must be a public URL.
+    </span>
+    <span
+      className="SettingsHint__List__SubDescription"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "github can be used to create a public URL. <a href=''>Click Here</a>",
+        }
+      }
+    />
+  </div>
+  <div
+    className="SettingsHint__List"
+  >
+    <span
+      className="SettingsHint__List__Count"
+    >
+      ✔
+    </span>
+    <span
+      className="SettingsHint__List__StepName"
+    >
+      No of questions
+    </span>
+    <span
+      className="SettingsHint__List__Optional"
+    >
+      optional
+    </span>
+    <span
+      className="SettingsHint__List__Description"
+    >
+      This is will be used to get total questions. ex: If you have 100 questions and you want to get only 10 questions at a time give 10
+    </span>
+  </div>
+  <div
+    className="SettingsHint__List"
+  >
+    <span
+      className="SettingsHint__List__Count"
+    >
+      ✔
+    </span>
+    <span
+      className="SettingsHint__List__StepName"
+    >
+      Points of per question
+    </span>
+    <span
+      className="SettingsHint__List__Optional"
+    >
+      optional
+    </span>
+    <span
+      className="SettingsHint__List__Description"
+    >
+      This is will be used to calculate score.
+    </span>
+  </div>
+  <div
+    className="SettingsHint__List"
+  >
+    <span
+      className="SettingsHint__List__Count"
+    >
+      ✔
+    </span>
+    <span
+      className="SettingsHint__List__StepName"
+    >
+      Author Name
+    </span>
+    <span
+      className="SettingsHint__List__Description"
+    >
+      This is will be shown in header as well as in sample tab. It is optional, can be empty. In case of empty it will show anything
+    </span>
+  </div>
+</div>
+`;

@@ -7,16 +7,47 @@ exports[`Header renders correctly 1`] = `
   <header
     className="container"
   >
-    <img
-      alt="some title"
-      className="Header__Logo"
-      src="some url"
-    />
-    <h1
-      className="Header__title"
+    <div
+      className="Header__Branding"
     >
-      some title
-    </h1>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="some title"
+          className="Header__Logo"
+          src="some url"
+        />
+        <h1
+          className="Header__title"
+        >
+          some title
+        </h1>
+      </a>
+    </div>
+    <nav
+      className="Navigation"
+    >
+      <ul>
+        <li>
+          <a
+            href="/configure"
+            onClick={[Function]}
+          >
+            Configure Quiz
+          </a>
+        </li>
+        <li>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            Sample
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </div>
 `;
