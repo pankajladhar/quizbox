@@ -22,5 +22,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/registerServiceWorker.js",
+      "!src/Configuration.js"
+    ]
   }
 }
