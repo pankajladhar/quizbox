@@ -1,0 +1,51 @@
+.SettingsHint {
+  padding: 20px;
+  .SettingsHint__List {
+    padding-bottom: 20px;
+    span {
+      display: inline-block;
+    }
+  }
+
+  .SettingsHint__List__Count {
+    background: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .SettingsHint__List__StepName {
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-bottom: 5px;
+  }
+
+  .SettingsHint__List__Optional {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #fff;
+  }
+
+  .SettingsHint__List__Description,
+  .SettingsHint__List__SubDescription {
+    font-size: 16px;
+    padding-left: 36px;
+  }
+
+  .SettingsHint__List__SubDescription { 
+    font-size: 16px;
+    display: block;
+    color: #fff;
+    a {
+      color: #1b2133;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+}

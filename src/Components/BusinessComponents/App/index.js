@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={(props) => <Layout><Home /></Layout>} />
-          <Route path="/configure" render={(props) => <Layout><Settings /></Layout>} />
+          <Route exact path="/" render={(props) => <Layout className="home"><Home /></Layout>} />
+          <Route path="/configure" render={(props) => <Layout className="configure"><Settings /></Layout>} />
           <Route path="/quiz/:quizID" component={Quiz} />
         </div>
       </Router>

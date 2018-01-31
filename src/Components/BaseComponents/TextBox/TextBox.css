@@ -1,0 +1,17 @@
+.TextBox {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 1px #404f62 solid;
+  width: 100%;
+  padding: 10px 0 0;
+  font-size: 18px;
+  font-family: Roboto Condensed, sans-serif; }
+  .TextBox::placeholder {
+    color: #cccccc;
+    font-weight: normal; }
+  .TextBox:focus {
+    outline: none;
+    border-color: #2fe09d; }
+  .TextBox:hover {
+    border-color: #2fe09d; }

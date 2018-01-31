@@ -6,7 +6,7 @@ import './Layout.css';
 
 const Layout = props => {
   return (
-    <div className="Layout">
+    <div className={`Layout ${props.className}`}>
       <Header title="Quizbox" logoUrl={logo} />
       <div className="container">
         {props.children}

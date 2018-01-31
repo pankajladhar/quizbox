@@ -7,6 +7,9 @@ import TextBox from './../../BaseComponents/TextBox';
 import Button from './../../BaseComponents/Button';
 import Label from './../../BaseComponents/Label';
 import FormField from './../../BaseComponents/FormField';
+import SettingsHint from './../../BaseComponents/SettingsHint'
+
+import './Settings.css';
 
 class Settings extends PureComponent {
     constructor(props) {
@@ -23,32 +26,32 @@ class Settings extends PureComponent {
     }
 
     handleLogoChange(value) {
-        this.setState({logoUrl : value})
+        this.setState({ logoUrl: value })
     }
 
     handleCompanyNameChange(value) {
-        this.setState({companyName : value})
+        this.setState({ companyName: value })
     }
 
     handleQuesUrlChange(value) {
-        this.setState({quesUrl : value})
+        this.setState({ quesUrl: value })
     }
 
     handleAnswerUrlChange(value) {
-        this.setState({answerUrl : value})
+        this.setState({ answerUrl: value })
     }
 
     handleTotalTimeChange(value) {
-        this.setState({totalTime : value})
+        this.setState({ totalTime: value })
     }
 
     handleNoQuesChange(value) {
-        this.setState({noOfques : value})
+        this.setState({ noOfques: value })
     }
 
     handleSaveClick(e) {
         e.preventDefault()
-        WriteInFirebase(this.state, "settings").then((snap)=>{
+        WriteInFirebase(this.state, "settings").then((snap) => {
             console.log(snap.key)
         });
     }
@@ -58,90 +61,45 @@ class Settings extends PureComponent {
         return (
             <div className="Settings">
                 <form onSubmit={this.handleSaveClick}>
-                    <h1>Settings</h1>
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="logoUrl" text="Enter Logo Url" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="Logo Url"
-                                    className="form-control"
-                                    onChange={this.handleLogoChange}
-                                    id="logoUrl" />
-                            </div>
-                        </div>
+                    <FormField>
+                        <Label htmlFor="Company name" text="Quiz title" />
+                        <TextBox placeholder="Enter quiz title"
+                            className="form-control"
+                            onChange={this.handleCompanyNameChange}
+                            id="Companyname" />
+                    </FormField>
+
+                    <FormField>
+                        <Label htmlFor="QuestionUrl" text="Question Url" />
+                        <TextBox placeholder="Enter question url"
+                            className="form-control"
+                            onChange={this.handleQuesUrlChange}
+                            id="QuestionUrl" />
+                    </FormField>
+
+                    <FormField>
+                        <Label htmlFor="NoofQuestions" text="No of questions" />
+                        <TextBox placeholder="Enter no of questions"
+                            className="form-control"
+                            onChange={this.handleNoQuesChange}
+                            id="NoofQuestions" />
                     </FormField>
 
 
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="Company name" text="Enter Company name" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="Company name"
-                                    className="form-control"
-                                    onChange={this.handleCompanyNameChange}
-                                    id="Companyname" />
-                            </div>
-                        </div>
+                    <FormField>
+                        <Label htmlFor="TotalTime" text="Points for One question" />
+                        <TextBox placeholder="Enter points"
+                            className="form-control"
+                            onChange={this.handleTotalTimeChange}
+                            id="TotalTime" />
                     </FormField>
 
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="QuestionUrl" text="Enter Question Url" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="Question Url"
-                                    className="form-control"
-                                    onChange={this.handleQuesUrlChange}
-                                    id="QuestionUrl" />
-                            </div>
-                        </div>
-                    </FormField>
-
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="AnswerUrl" text="Enter Answer Url" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="Answer Url"
-                                    className="form-control"
-                                    onChange={this.handleAnswerUrlChange}
-                                    id="AnswerUrl" />
-                            </div>
-                        </div>
-                    </FormField>
-
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="TotalTime" text="Enter Total Time" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="Total Time"
-                                    className="form-control"
-                                    onChange={this.handleTotalTimeChange}
-                                    id="TotalTime" />
-                            </div>
-                        </div>
-                    </FormField>
-
-                    <FormField className="form-group">
-                        <div className="row">
-                            <div className="col-md-3 text-right">
-                                <Label htmlFor="NoofQuestions" text="Enter No of Questions" />
-                            </div>
-                            <div className="col-md-9">
-                                <TextBox placeholder="No of Questions"
-                                    className="form-control"
-                                    onChange={this.handleNoQuesChange}
-                                    id="NoofQuestions" />
-                            </div>
-                        </div>
+                    <FormField>
+                        <Label htmlFor="TotalTime" text="Author Name" />
+                        <TextBox placeholder="Enter author name"
+                            className="form-control"
+                            onChange={this.handleTotalTimeChange}
+                            id="AuthorName" />
                     </FormField>
 
                     <div className="float-right">
@@ -155,6 +113,9 @@ class Settings extends PureComponent {
                     </div>
 
                 </form>
+                <div className="Settings__Hint">
+                    <SettingsHint />
+                </div>
             </div>
         );
     }

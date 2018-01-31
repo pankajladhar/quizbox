@@ -22,14 +22,14 @@
     font-size: 20px;
     padding: 10px 30px;
     line-height: 1;
-    background: #349284;
+    background: #2fe09d;
+    border-color: #2fe09d;
     color: #fff;
     border-radius: 4px;
     transition: all .3s ease;
     &:hover {
-      color: #1b2133;
-      background: #49c7da;
-      border-color: #49c7da;
+      background: #25b37d;
+      border-color: #25b37d;
     }
   }
 }
