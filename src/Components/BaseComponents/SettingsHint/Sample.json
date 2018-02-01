@@ -1,0 +1,12 @@
+[
+    {
+      "question": "Question1",
+      "answers": ["Answer11", "Answer12"],
+      "correctAnswer": "Answer11"
+    },
+    {
+      "question": "Question2",
+      "answers": ["Answer21", "Answer22",  "Answer23"],
+      "correctAnswer": "Answer21"
+    }
+]
