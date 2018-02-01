@@ -22,7 +22,7 @@ class GithubConfig extends Component {
                         </div>
                     </div>
                     <div>
-                        <a className="btn" href='./Sample.json' download>Download Sample</a>
+                        <a className="btn" href='/Sample.json' download>Download Sample</a>
                     </div>
                 </div>
 

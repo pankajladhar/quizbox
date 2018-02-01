@@ -32,7 +32,12 @@ class SettingsHint extends Component {
                                 <span className="SettingsHint__List__StepName">{item.stepName}</span>
                                 {item.isMandatory && <span className="SettingsHint__List__Optional">optional</span>}
                                 <span className="SettingsHint__List__Description">{item.description}</span>
-                                {item.subDescription && this.__formatText(item.subDescription)}
+                                {item.subDescription && this.__formatText(item.subDescription[0])}
+                                {item.subDescription &&
+                                    <span className="SettingsHint__List__SubDescription"
+                                        dangerouslySetInnerHTML={{ __html: item.subDescription[1] }} />
+                                } 
+
                             </div>
                         )
                     })
