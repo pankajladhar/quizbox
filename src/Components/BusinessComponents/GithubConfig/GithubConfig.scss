@@ -22,4 +22,14 @@
     display: inline-block;
     padding: 0 3px;
   }
+
+  .btn {
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  .GithubConfig__Info {
+    display: flex;
+    justify-content: space-between;
+  }
 }

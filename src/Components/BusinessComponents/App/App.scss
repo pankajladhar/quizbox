@@ -56,15 +56,16 @@ a {
   font-size: 16px;
   color: #fff;
   padding: 10px;
+  border-radius: 4px;
 }
 
 .btn {
-  // border: 1px #349284 solid;
   border: 1px #2fe09d solid;
+  background-color: #2fe09d;
 
   &:hover, &:focus {
-    // background: #349284;
-    background: #2fe09d;
+    background: #25b37d;
+    border-color: #25b37d;
   }
 }
 

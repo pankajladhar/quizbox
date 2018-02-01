@@ -10,16 +10,22 @@ class GithubConfig extends Component {
         return (
             <div className="GithubConfig">
                 <h2>How to configure using github</h2>
-                <h3> Assumption :</h3>
-                <div>
-                    You have pushed
-                    <span className="GithubConfig__FileName">react_new.json</span>
-                    file in one of your repository.
+                <div className="GithubConfig__Info">
+                    <div>
+                        <h3> Assumption :</h3>
+                        You have pushed
+                        <span className="GithubConfig__FileName">react_new.json</span>
+                        file in one of your repository.
+                        <div>
+                            * extension of file must be <span className="GithubConfig__FileName">.json</span>
+                            and validate json.
+                        </div>
+                    </div>
+                    <div>
+                        <a className="btn" href='./Sample.json' download>Download Sample</a>
+                    </div>
                 </div>
-                <div>
-                    * extension of file must be <span className="GithubConfig__FileName">.json</span>
-                    and validate json.
-                </div>
+
                 <h3>Step 1</h3>
                 <img src={step1} alt="step1" />
                 <h3>Step 2</h3>

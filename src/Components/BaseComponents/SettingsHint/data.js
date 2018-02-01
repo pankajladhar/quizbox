@@ -8,10 +8,7 @@ const data = [
         "stepName": "Question url",
         "isMandatory": true,
         "description": "This will be used to fetch questions. This must be a public URL.",
-        "subDescription" : [
-            "github can be used to create a public URL.(/configure/github) [Click Here]",
-            "<a href='./Sample.json' download>Download Sample</a>"
-        ]
+        "subDescription" : "github can be used to create a public URL.(/configure/github) [Click Here]"
     },
     {
         "stepName": "No of questions",
