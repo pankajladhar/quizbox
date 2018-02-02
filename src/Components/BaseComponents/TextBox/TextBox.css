@@ -15,3 +15,8 @@
     border-color: #2fe09d; }
   .TextBox:hover {
     border-color: #2fe09d; }
+
+.TextBox--Error {
+  border-color: #f44336; }
+  .TextBox--Error:focus, .TextBox--Error:hover {
+    border-color: #f44336; }

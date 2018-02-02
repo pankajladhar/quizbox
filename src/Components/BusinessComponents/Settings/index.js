@@ -17,38 +17,10 @@ class Settings extends PureComponent {
         super(props);
         this.state = {
         }
-        this.handleLogoChange = this.handleLogoChange.bind(this);
-        this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this);
-        this.handleQuesUrlChange = this.handleQuesUrlChange.bind(this);
-        this.handleAnswerUrlChange = this.handleAnswerUrlChange.bind(this);
-        this.handleTotalTimeChange = this.handleTotalTimeChange.bind(this);
-        this.handleNoQuesChange = this.handleNoQuesChange.bind(this);
+        this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
     }
 
-    handleLogoChange(value) {
-        this.setState({ logoUrl: value })
-    }
-
-    handleCompanyNameChange(value) {
-        this.setState({ companyName: value })
-    }
-
-    handleQuesUrlChange(value) {
-        this.setState({ quesUrl: value })
-    }
-
-    handleAnswerUrlChange(value) {
-        this.setState({ answerUrl: value })
-    }
-
-    handleTotalTimeChange(value) {
-        this.setState({ totalTime: value })
-    }
-
-    handleNoQuesChange(value) {
-        this.setState({ noOfques: value })
-    }
 
     handleSaveClick(e) {
         e.preventDefault()
@@ -57,24 +29,55 @@ class Settings extends PureComponent {
         });
     }
 
+    handleOnChange(e){
+        let elemName = e.target.name;
+        let elemValue = e.target.value;
+        switch(elemName) {
+            case "QuizTitle" : this.setState({
+                quizTitle : elemValue
+            })
+            break;
+
+            case "QuestionUrl" : this.setState({
+                quesUrl : elemValue
+            })
+            break;
+
+            case "NoofQuestions" : this.setState({
+                noOfques : elemValue
+            })
+            break;
+
+            case "Point" : this.setState({
+                point : elemValue
+            })
+            break;
+
+            case "AuthorName" : this.setState({
+                authorName : elemValue
+            })
+            break;
+        }
+    }
+
 
     render() {
         return (
             <div className="Settings">
                 <form onSubmit={this.handleSaveClick}>
                     <FormField>
-                        <Label htmlFor="Company name" text="Quiz title" />
+                        <Label htmlFor="QuizTitle" text="Quiz title" />
                         <TextBox placeholder="Enter quiz title"
                             className="form-control"
-                            onChange={this.handleCompanyNameChange}
-                            id="Companyname" />
+                            onChange={this.handleOnChange}
+                            id="QuizTitle" />
                     </FormField>
 
                     <FormField>
                         <Label htmlFor="QuestionUrl" text="Question Url" />
                         <TextBox placeholder="Enter question url"
                             className="form-control"
-                            onChange={this.handleQuesUrlChange}
+                            onChange={this.handleOnChange}
                             id="QuestionUrl" />
                         <Error>Required</Error>
                     </FormField>
@@ -83,24 +86,23 @@ class Settings extends PureComponent {
                         <Label htmlFor="NoofQuestions" text="No of questions" />
                         <TextBox placeholder="Enter no of questions"
                             className="form-control"
-                            onChange={this.handleNoQuesChange}
+                            onChange={this.handleOnChange}
                             id="NoofQuestions" />
                     </FormField>
 
-
                     <FormField>
-                        <Label htmlFor="TotalTime" text="Points for One question" />
+                        <Label htmlFor="Point" text="Points for One question" />
                         <TextBox placeholder="Enter points"
                             className="form-control"
-                            onChange={this.handleTotalTimeChange}
-                            id="TotalTime" />
+                            onChange={this.handleOnChange}
+                            id="Point" />
                     </FormField>
 
                     <FormField>
-                        <Label htmlFor="TotalTime" text="Author Name" />
+                        <Label htmlFor="AuthorName" text="Author Name" />
                         <TextBox placeholder="Enter author name"
                             className="form-control"
-                            onChange={this.handleTotalTimeChange}
+                            onChange={this.handleOnChange}
                             id="AuthorName" />
                     </FormField>
 

@@ -22,3 +22,10 @@
     border-color: #2fe09d;
   }
 }
+
+.TextBox--Error {
+  border-color: #f44336;
+  &:focus, &:hover{
+    border-color: #f44336;
+  }
+}

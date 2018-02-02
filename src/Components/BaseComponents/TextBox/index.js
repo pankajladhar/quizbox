@@ -7,20 +7,33 @@ import './TextBox.css';
 class TextBox extends PureComponent {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            hasError: "TextBox--NoError"
+        }
+        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleOnBlur = this.handleOnBlur.bind(this);
     }
 
-    handleChange(e) {
-        this.props.onChange(e.target.value);
+    handleOnChange(e) {
+        this.props.onChange(e);
+    }
+
+    handleOnBlur(e) {
+        let value = e.target.value;
+        value.length === 0 && this.setState({
+            hasError: "TextBox--Error"
+        })
     }
 
     render() {
         return (
             <input id={this.props.id}
+                name={this.props.id}
                 type={this.props.type}
-                className={`TextBox ${this.props.className}`}
+                className={`TextBox ${this.props.className} ${this.state.hasError}`}
                 placeholder={this.props.placeholder}
-                onChange={this.handleChange}
+                onChange={this.handleOnChange}
+                onBlur={this.handleOnBlur}
             />
         );
     }
