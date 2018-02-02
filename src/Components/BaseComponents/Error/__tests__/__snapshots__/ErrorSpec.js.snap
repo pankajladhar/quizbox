@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error renders correctly with mandatory params 1`] = `
+<div
+  className="Error"
+>
+  <h1>
+    Some Children
+  </h1>
+</div>
+`;

@@ -1,9 +1,10 @@
 .Settings {
   font-family: Roboto Condensed, sans-serif;
   font-size: 20px;
-  margin-top: 20px;
   color: #1b2133;
-  width: 300px; }
+  width: 400px;
+  margin-top: 60px;
+  padding-top: 30px; }
   .Settings .Settings__Hint {
     position: fixed;
     background: #49c7da;

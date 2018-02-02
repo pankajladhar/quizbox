@@ -1,7 +1,10 @@
 .Layout {
   height: 100%; }
   .Layout .Header {
-    background: #1b2133; }
+    background: #1b2133;
+    position: fixed;
+    width: 100%;
+    top: 0; }
     .Layout .Header .Header__title {
       color: #49c7da; }
   .Layout.home {
@@ -21,5 +24,3 @@
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4954de', endColorstr='#49ddd8',GradientType=1 );
     /* IE6-9 fallback on horizontal gradient */ }
-  .Layout.configure {
-    background: #fff; }

@@ -8,6 +8,7 @@ import Button from './../../BaseComponents/Button';
 import Label from './../../BaseComponents/Label';
 import FormField from './../../BaseComponents/FormField';
 import SettingsHint from './../../BaseComponents/SettingsHint'
+import Error from './../../BaseComponents/Error';
 
 import './Settings.css';
 
@@ -75,6 +76,7 @@ class Settings extends PureComponent {
                             className="form-control"
                             onChange={this.handleQuesUrlChange}
                             id="QuestionUrl" />
+                        <Error>Required</Error>
                     </FormField>
 
                     <FormField>
