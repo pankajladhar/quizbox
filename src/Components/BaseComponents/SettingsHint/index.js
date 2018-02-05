@@ -30,7 +30,7 @@ class SettingsHint extends Component {
                             <div className="SettingsHint__List" key={index}>
                                 <span className="SettingsHint__List__Count">&#10004;</span>
                                 <span className="SettingsHint__List__StepName">{item.stepName}</span>
-                                {item.isMandatory && <span className="SettingsHint__List__Optional">optional</span>}
+                                {!item.isMandatory && <span className="SettingsHint__List__Optional">optional</span>}
                                 <span className="SettingsHint__List__Description">{item.description}</span>
                                 {item.subDescription && this.__formatText(item.subDescription[0])}
                                 {item.subDescription &&

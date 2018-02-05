@@ -7,22 +7,34 @@ import './TextBox.css';
 class TextBox extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            hasError: "TextBox--NoError"
-        }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
+        this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
+        this.handleOnKeyDown = this.handleOnKeyDown.bind(this);
     }
+
 
     handleOnChange(e) {
         this.props.onChange(e);
     }
 
+    handleOnKeyPress(e) {
+        this.props.type === "number"
+            && (
+                e.charCode === 101
+                || e.charCode === 43
+                || e.charCode === 45
+                || e.charCode === 69
+            )
+            && e.preventDefault();
+    }
+
+    handleOnKeyDown(e) {
+        this.props.type === "number" && (e.which === 38 || e.which === 40) && e.preventDefault();
+    }
+
     handleOnBlur(e) {
-        let value = e.target.value;
-        value.length === 0 && this.setState({
-            hasError: "TextBox--Error"
-        })
+        this.props.onBlur(e);
     }
 
     render() {
@@ -30,10 +42,12 @@ class TextBox extends PureComponent {
             <input id={this.props.id}
                 name={this.props.id}
                 type={this.props.type}
-                className={`TextBox ${this.props.className} ${this.state.hasError}`}
+                className={`TextBox ${this.props.className}`}
                 placeholder={this.props.placeholder}
                 onChange={this.handleOnChange}
                 onBlur={this.handleOnBlur}
+                onKeyPress={this.handleOnKeyPress}
+                onKeyDown={this.handleOnKeyDown}
             />
         );
     }
@@ -42,15 +56,20 @@ class TextBox extends PureComponent {
 TextBox.defaultProps = {
     type: "text",
     placeholder: "",
-    className: ""
+    className: "",
+    onBlur: () =>{
+
+    }
 };
 
 TextBox.propTypes = {
     className: PropTypes.string,
     id: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(["text", "password"]).isRequired,
+    type: PropTypes.oneOf(["text", "number"]).isRequired,
     placeholder: PropTypes.string,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    onKeyPress: PropTypes.func,
+    onKeyDown: PropTypes.func,
 };
 
 export default TextBox;
