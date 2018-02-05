@@ -1,0 +1,11 @@
+.Button {
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+    border-color: #ccc;
+    &:hover {
+      background-color: #ccc;
+      border-color: #ccc;
+    }
+  }
+}

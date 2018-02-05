@@ -81,7 +81,7 @@ class Settings extends PureComponent {
                 });
 
                 this.setState({
-                    quesUrl: elemValue,
+                    quesUrl: elemValue
                 })
                 break;
 
@@ -139,6 +139,7 @@ class Settings extends PureComponent {
                 })
                 break;
         }
+
     }
 
     handleOnChange(e) {
@@ -177,8 +178,9 @@ class Settings extends PureComponent {
         }
     }
 
-
     render() {
+        console.log(!(this.state.quesUrlErrorClass === "TextBox--NoError" && this.state.noOfQuestionsErrorClass === "TextBox--NoError" &&
+            this.state.pointErrorClass === "TextBox--NoError"))
         return (
             <div className="Settings">
                 <form onSubmit={this.handleSaveClick}>
@@ -231,13 +233,15 @@ class Settings extends PureComponent {
                     </FormField>
 
                     <div className="float-right">
-                        <Button className="btn btn-outline-success"
+                        <Button className="btn"
                             type="submit"
+                            disabled={
+                                !(this.state.quesUrlErrorClass === "TextBox--NoError"
+                                    && this.state.noOfQuestionsErrorClass === "TextBox--NoError"
+                                    && this.state.pointErrorClass === "TextBox--NoError")
+                            }
                             onClick={this.handleSaveClick}
                             value="Save" />
-                        {/* <Button className="btn btn-outline-danger"
-                            type="reset"
-                            value="Reset" /> */}
                     </div>
 
                 </form>

@@ -7,26 +7,39 @@ exports[`GithubConfig renders correctly 1`] = `
   <h2>
     How to configure using github
   </h2>
-  <h3>
-     Assumption :
-  </h3>
-  <div>
-    You have pushed
-    <span
-      className="GithubConfig__FileName"
-    >
-      react_new.json
-    </span>
-    file in one of your repository.
-  </div>
-  <div>
-    * extension of file must be 
-    <span
-      className="GithubConfig__FileName"
-    >
-      .json
-    </span>
-    and validate json.
+  <div
+    className="GithubConfig__Info"
+  >
+    <div>
+      <h3>
+         Assumption :
+      </h3>
+      You have pushed
+      <span
+        className="GithubConfig__FileName"
+      >
+        react_new.json
+      </span>
+      file in one of your repository.
+      <div>
+        * extension of file must be 
+        <span
+          className="GithubConfig__FileName"
+        >
+          .json
+        </span>
+        and validate json.
+      </div>
+    </div>
+    <div>
+      <a
+        className="btn"
+        download={true}
+        href="/Sample.json"
+      >
+        Download Sample
+      </a>
+    </div>
   </div>
   <h3>
     Step 1
