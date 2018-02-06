@@ -1,6 +1,7 @@
 .Header {
   padding: 10px;
-  color: white; }
+  color: white;
+  z-index: 99; }
   .Header header {
     display: flex;
     justify-content: space-between;

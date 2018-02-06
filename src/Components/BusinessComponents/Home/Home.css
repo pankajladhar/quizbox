@@ -4,9 +4,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #fff; }
+  color: #fff;
+  width: 100%; }
   .Home h1 {
     font-size: 60px; }
+    @media (max-width: 576px) {
+      .Home h1 {
+        font-size: 45px;
+        line-height: 1;
+        margin-bottom: 20px; } }
   .Home h2 {
     font-size: 30px;
     line-height: 1;

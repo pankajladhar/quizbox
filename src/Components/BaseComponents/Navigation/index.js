@@ -5,15 +5,37 @@ import PropTypes from 'prop-types';
 import './Navigation.css';
 
 class Navigation extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggleMenu : false
+        }
+        this.handleOnClick = this.handleOnClick.bind(this);
+    }
+
+    handleOnClick() {
+        this.setState({
+            toggleMenu: !this.state.toggleMenu
+        });
+    }
+
     render() {
         return (
-            <nav className="Navigation">
-                <ul>
-                    {/* <li><Link to="/">How to Configure</Link></li> */}
-                    <li><Link to="/configure">Configure Quiz</Link></li>
-                    <li><Link to="/try">Try Existing </Link></li>
-                </ul>
-            </nav>
+            <div className={`Navigation ${this.state.toggleMenu ? 'Navigation--Opened' : 'Navigation--Closed'}`}>
+                <nav>
+                    <ul>
+                        {/* <li><Link to="/">How to Configure</Link></li> */}
+                        <li><Link to="/configure">Configure Quiz</Link></li>
+                        <li><Link to="/try">Try Existing </Link></li>
+                    </ul>
+                </nav>
+                <button className="toggleButton"
+                    onClick={this.handleOnClick}>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
         );
     }
 }
