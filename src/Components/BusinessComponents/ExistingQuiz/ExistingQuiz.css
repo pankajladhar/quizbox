@@ -1,22 +1,30 @@
 .ExistingQuiz {
   padding-top: 80px; }
   .ExistingQuiz .ExistingQuiz__List__Item {
-    border-bottom: 1px #1c2234 solid;
-    padding: 5px 10px 10px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between; }
     .ExistingQuiz .ExistingQuiz__List__Item:last-child {
-      border: none; }
-  .ExistingQuiz .ExistingQuiz__List__QuizName {
+      padding-bottom: 0; }
+  .ExistingQuiz .ExistingQuiz__List__QuizDetails {
     display: flex;
     flex-direction: column;
     font-size: 20px;
     font-weight: bold; }
-    .ExistingQuiz .ExistingQuiz__List__QuizName a {
+    .ExistingQuiz .ExistingQuiz__List__QuizDetails a {
       font-weight: normal;
       font-size: 16px;
       color: #1c2234;
-      text-decoration: underline; }
-      .ExistingQuiz .ExistingQuiz__List__QuizName a:hover {
+      text-decoration: underline;
+      padding-left: 40px; }
+      .ExistingQuiz .ExistingQuiz__List__QuizDetails a:hover {
         text-decoration: none; }
+  .ExistingQuiz .ExistingQuiz__List__Tick {
+    background: #2fe09d;
+    border-radius: 50%;
+    width: 25px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 10px;
+    padding-left: 7px; }

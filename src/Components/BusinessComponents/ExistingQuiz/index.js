@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ReadFromFirebase } from './../../../Firebase';
 import _map from 'lodash/map';
+
+import Loader from '../../BaseComponents/Loader';
 import './ExistingQuiz.css';
 
 class ExistingQuiz extends Component {
@@ -27,35 +29,44 @@ class ExistingQuiz extends Component {
         })
     }
 
+    renderLoader() {
+        return <Loader />
+    };
+
     render() {
-        console.log("hloo", this.state.existingQuiz)
         return (
             <div className="ExistingQuiz">
-                <ul className="ExistingQuiz__List">
+                {Object.keys(this.state.existingQuiz).length > 0 ? <ul className="ExistingQuiz__List">
                     {
-                        Object.keys(this.state.existingQuiz).length > 0 && _map(this.state.existingQuiz, (item, key) => {
+                        _map(this.state.existingQuiz, (item, key) => {
                             return (
                                 <li className="ExistingQuiz__List__Item">
-                                    <span className="ExistingQuiz__List__QuizName">
-                                        {item.quizName}
-                                    <a href= {`http://pankajladhar.github.io/quizbox/quiz/${key}`}
-                                                    target="_blank"
-                                                    className="ExistingQuiz__List__QuizURL">
-                                                    {`http://pankajladhar.github.io/quizbox/quiz/${key}`}
-                                    </a>
+                                    <span className="ExistingQuiz__List__QuizDetails">
+                                        <span className="ExistingQuiz__List__QuizName">
+                                            <span className="ExistingQuiz__List__Tick">
+                                                &#10004;
+                                            </span>
+                                            {item.quizName}
+                                        </span>
+                                        <a href={`http://pankajladhar.github.io/quizbox/quiz/${key}`}
+                                            target="_blank"
+                                            className="ExistingQuiz__List__QuizURL">
+                                            {`http://pankajladhar.github.io/quizbox/quiz/${key}`}
+                                        </a>
                                     </span>
-                                    <span className="ExistingQuiz__List__Autor">
+                                    <span className="ExistingQuiz__List__Author">
                                         {item.authorName}
                                     </span>
 
                                     <span className="ExistingQuiz__List__Views">
                                         Total Views: {item.views}
-                                </span>
+                                    </span>
                                 </li>
                             )
                         })
                     }
                 </ul>
+                    : this.renderLoader()}
             </div>
         );
     }

@@ -1,10 +1,12 @@
 .Quiz {
-
+  background-color: #1b2133;
+  height: 100%; 
   header {
     display: flex;
     padding: 20px 10px;
     justify-content: center;
     align-items: center;
+    color: #fff;
 
     h1 {
       margin: 0 auto;
