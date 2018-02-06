@@ -49,6 +49,9 @@ class Results extends PureComponent {
                     <span className="Results__TopPanel__Percentage">
                         {(this.getCorrectAnswerCount(this.props.userAnswers) / this.props.noOfques) * 100} %
                     </span>
+                    <span>
+                        Time Taken : {this.props.timeTaken}
+                    </span>
                     <Button className="btn"
                         onClick={this.handleClick}
                         value="Get Correct Answer" />

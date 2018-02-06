@@ -7,52 +7,48 @@ class Timer extends Component {
         super(props);
 
         this.state = {
-            time: {},
+            time: {
+                m: 0,
+                s: 0
+            },
             seconds: this.props.mins,
         };
         this.countDown = this.countDown.bind(this);
+        this.timeTaken = this.timeTaken.bind(this);
     }
 
-    secondsToTime(secs) {
-        let hours = Math.floor(secs / (60 * 60));
-        
-        let divisor_for_minutes = secs % (60 * 60);
-        let minutes = Math.floor(divisor_for_minutes / 60);
-
-        let divisor_for_seconds = divisor_for_minutes % 60;
-        let seconds = Math.ceil(divisor_for_seconds);
-
-        let obj = {
-            "h": hours,
-            "m": minutes,
-            "s": seconds
-        };
-        return obj;
-    }
 
     componentDidMount() {
-        let timeLeftVar = this.secondsToTime(this.state.seconds);
-        this.setState({ time: timeLeftVar },()=>{
-            this.startTimer();
-        });
+        this.startTimer();
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
 
     startTimer() {
         this.timer = setInterval(this.countDown, 1000);
     }
 
+    secondsToTime(sec) {
+        return {
+            m: this.state.time.m +  Math.floor(sec / 60),
+            s: sec % 60
+        }
+    }
+
     countDown() {
-        let seconds = this.state.seconds - 1;
+        let seconds = this.state.time.s + 1;
         this.setState({
             time: this.secondsToTime(seconds),
             seconds: seconds,
-        });
-
-        if (seconds == 0) {
-            clearInterval(this.timer);
-            this.props.onTimeOut();
-        }
+        });    
     }
+
+    timeTaken() {
+        return `${this.state.time.m} Mins and ${this.state.time.s} Secs`;
+    }
+
 
     render() {
         return (

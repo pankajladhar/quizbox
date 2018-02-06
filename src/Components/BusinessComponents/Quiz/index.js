@@ -17,29 +17,27 @@ class Quiz extends PureComponent {
             settings: {
                 quesUrl: "",
                 noOfques: "",
-                totalTime: "",
                 quizName: "",
                 point: "",
             },
             questions: [],
             currentQues: 0,
             userAnswers: [],
-            timeOut : false
+            timeTaken: 0
         }
-        this.handleTimeOut = this.handleTimeOut.bind(this);
-        this.handleNextClick = this.handleNextClick.bind(this);        
+        this.setTimeTaken = this.setTimeTaken.bind(this);
+        this.handleNextClick = this.handleNextClick.bind(this);
         this.isLastQuestion = this.isLastQuestion.bind(this);
     }
 
     isLastQuestion() {
-        return this.state.currentQues === this.state.settings.noOfques ? true : false 
+        return this.state.currentQues === this.state.settings.noOfques ? true : false
     }
 
     __getSettings(res) {
         return {
             quesUrl: res.quesUrl,
             noOfques: Number(res.noOfques),
-            totalTime: Number(res.totalTime) * 60,
             quizName: res.quizName,
             point: res.point * Number(res.noOfques)
         }
@@ -84,8 +82,7 @@ class Quiz extends PureComponent {
     renderComponents = {
         renderTimer: () => {
             return (
-                <Timer mins={this.state.settings.totalTime}
-                    onTimeOut={this.handleTimeOut} />
+                <Timer ref={(timer) => { this.timer = timer }} />
             )
         },
         renderLoader: () => {
@@ -120,8 +117,10 @@ class Quiz extends PureComponent {
             )
         },
         renderResults: () => {
+            this.setTimeTaken()
             return (
                 <Results
+                    timeTaken={this.state.timeTaken}
                     noOfques={this.state.settings.noOfques}
                     userAnswers={this.state.userAnswers}
                 />
@@ -137,10 +136,13 @@ class Quiz extends PureComponent {
         });
     }
 
-    handleTimeOut() {
-        this.setState({
-            timeOut: true
-        })
+    setTimeTaken() {
+        if (this.timer) {
+            let time = this.timer.timeTaken()
+            this.setState({
+                timeTaken: time
+            })
+        }
     }
 
     render() {
@@ -151,7 +153,7 @@ class Quiz extends PureComponent {
                     <div>
                         <main className="container">
                             {renderQuizHeader()}
-                            {!this.isLastQuestion() ? // && !this.state.timeOut
+                            {!this.isLastQuestion() ?
                                 <div>
                                     {renderTimer()}
                                     {renderQuestions()}
