@@ -1,5 +1,9 @@
 .ExistingQuiz {
   padding-top: 80px; }
+  @media (max-width: 760px) {
+    .ExistingQuiz {
+      padding-left: 10px;
+      padding-right: 10px; } }
   .ExistingQuiz .ExistingQuiz__List__Item {
     padding-bottom: 20px;
     display: flex;
@@ -7,6 +11,13 @@
     justify-content: space-between; }
     .ExistingQuiz .ExistingQuiz__List__Item:last-child {
       padding-bottom: 0; }
+    @media (max-width: 760px) {
+      .ExistingQuiz .ExistingQuiz__List__Item {
+        flex-wrap: wrap;
+        border-bottom: 1px #1c2234 solid; }
+        .ExistingQuiz .ExistingQuiz__List__Item:last-child {
+          padding-bottom: 20px;
+          padding-top: 20px; } }
   .ExistingQuiz .ExistingQuiz__List__QuizDetails {
     display: flex;
     flex-direction: column;
@@ -18,12 +29,16 @@
       color: #1c2234;
       text-decoration: underline;
       padding-left: 40px; }
+      @media (max-width: 760px) {
+        .ExistingQuiz .ExistingQuiz__List__QuizDetails a {
+          margin-bottom: 10px;
+          word-break: break-word; } }
       .ExistingQuiz .ExistingQuiz__List__QuizDetails a:hover {
         text-decoration: none; }
   .ExistingQuiz .ExistingQuiz__List__Tick {
     background: #2fe09d;
     border-radius: 50%;
-    width: 25px;
+    width: 30px;
     height: 32px;
     display: inline-block;
     margin-right: 10px;

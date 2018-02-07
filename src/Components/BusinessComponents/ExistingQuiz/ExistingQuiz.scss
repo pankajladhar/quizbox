@@ -1,5 +1,9 @@
 .ExistingQuiz {
   padding-top: 80px;
+  @media (max-width: 760px) { 
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .ExistingQuiz__List__Item {
     padding-bottom: 20px;
     display: flex;
@@ -8,6 +12,15 @@
 
     &:last-child {
       padding-bottom: 0;
+    }
+
+    @media (max-width: 760px) { 
+      flex-wrap: wrap;
+      border-bottom: 1px #1c2234 solid;
+      &:last-child {
+        padding-bottom: 20px;
+        padding-top: 20px
+      }
     }
   }
 
@@ -22,6 +35,10 @@
       color: #1c2234;
       text-decoration: underline;
       padding-left: 40px;
+      @media (max-width: 760px) { 
+        margin-bottom: 10px;
+        word-break: break-word;
+      }
       &:hover {
         text-decoration: none;
       }
@@ -31,7 +48,7 @@
   .ExistingQuiz__List__Tick {
     background: #2fe09d;
     border-radius: 50%;
-    width: 25px;
+    width: 30px;
     height: 32px;
     display: inline-block;
     margin-right: 10px;
