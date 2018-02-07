@@ -8,6 +8,16 @@ html, body {
   height: 100%;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: Oswald, sans-serif;
   // background-color: #1b2133;
@@ -69,6 +79,9 @@ a {
   }
 }
 
+.App {
+  overflow: hidden;
+}
 
 .App, #root {
   height: 100%;

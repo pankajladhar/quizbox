@@ -5,6 +5,23 @@
   width: 400px;
   margin-top: 60px;
   padding-top: 30px; }
+  @media (min-width: 767px) and (max-width: 1023px) {
+    .Settings {
+      width: 320px; } }
+  @media (max-width: 760px) {
+    .Settings {
+      position: relative;
+      padding-left: 15px;
+      padding-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      padding-right: 15px; } }
+  .Settings .ConfigureInfo__Settings {
+    display: none; }
+    @media (max-width: 760px) {
+      .Settings .ConfigureInfo__Settings {
+        display: flex;
+        justify-content: flex-end; } }
   .Settings .Settings__Hint {
     position: fixed;
     background: #49c7da;
@@ -13,3 +30,19 @@
     right: 0;
     top: 60px;
     width: 500px; }
+    .Settings .Settings__Hint .SettingsHint {
+      background: #49c7da; }
+    @media (min-width: 767px) and (max-width: 1023px) {
+      .Settings .Settings__Hint {
+        width: 370px; } }
+    @media (max-width: 760px) {
+      .Settings .Settings__Hint {
+        position: absolute;
+        transition: transform 0.5s;
+        top: 50px; }
+        .Settings .Settings__Hint.hide {
+          transform: translateX(100%); }
+        .Settings .Settings__Hint.show {
+          display: block;
+          width: 100%;
+          transform: translateX(0px); } }

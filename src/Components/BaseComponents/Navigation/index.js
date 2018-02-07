@@ -31,9 +31,9 @@ class Navigation extends Component {
                 </nav>
                 <button className="toggleButton"
                     onClick={this.handleOnClick}>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
+                    <span className="line"></span>
+                    <span className="line"></span>
+                    <span className="line"></span>
                 </button>
             </div>
         );

@@ -3,6 +3,14 @@
 html, body {
   height: 100%; }
 
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 body {
   font-family: Oswald, sans-serif;
   background-color: #fff;
@@ -48,6 +56,9 @@ a {
   .btn:hover, .btn:focus {
     background: #25b37d;
     border-color: #25b37d; }
+
+.App {
+  overflow: hidden; }
 
 .App, #root {
   height: 100%; }

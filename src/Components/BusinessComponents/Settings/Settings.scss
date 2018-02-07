@@ -6,6 +6,28 @@
   margin-top: 60px;
   padding-top: 30px;
 
+  @media (min-width: 767px) and (max-width: 1023px) { 
+    width: 320px;
+  }
+
+  @media (max-width: 760px) {
+      position: relative;
+      padding-left: 15px;
+      padding-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      padding-right: 15px;
+  }
+  
+
+  .ConfigureInfo__Settings {
+    display: none;
+    @media (max-width: 760px) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
   .Settings__Hint  {
     position: fixed;
     background: #49c7da;
@@ -14,5 +36,28 @@
     right: 0;
     top: 60px;
     width: 500px;
+
+    .SettingsHint {
+      background: #49c7da;
+    }
+
+    @media (min-width: 767px) and (max-width: 1023px) { 
+      width: 370px;
+    }
+
+    @media (max-width: 760px) {
+      position: absolute;
+      transition: transform 0.5s;
+      top: 50px;
+      &.hide {
+        transform: translateX(100%);
+      }
+      &.show {
+        display: block;
+        width: 100%; 
+        transform: translateX(0px);
+      }
+    }
+   
   }
 }

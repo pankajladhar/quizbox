@@ -19,10 +19,12 @@ class Settings extends PureComponent {
         this.state = {
             quizTitle: "QuizBox",
             authorName: "",
+            showConfiguration: false,
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
+        this.handleClickConfigureBtn = this.handleClickConfigureBtn.bind(this);
     }
 
     handleSaveClick(e) {
@@ -178,11 +180,21 @@ class Settings extends PureComponent {
         }
     }
 
+    handleClickConfigureBtn() {
+        this.setState({
+            showConfiguration: !this.state.showConfiguration
+        });
+    }
+
     render() {
-        console.log(!(this.state.quesUrlErrorClass === "TextBox--NoError" && this.state.noOfQuestionsErrorClass === "TextBox--NoError" &&
-            this.state.pointErrorClass === "TextBox--NoError"))
         return (
             <div className="Settings">
+                <div className="ConfigureInfo__Settings">
+                    <Button className="btn"
+                        onClick={this.handleClickConfigureBtn}
+                        value="How to configure" />
+                </div>
+
                 <form onSubmit={this.handleSaveClick}>
                     <FormField>
                         <Label htmlFor="QuizTitle" text="Quiz title" />
@@ -245,7 +257,8 @@ class Settings extends PureComponent {
                     </div>
 
                 </form>
-                <div className="Settings__Hint">
+
+                <div className={`Settings__Hint ${this.state.showConfiguration ? "show" : "hide"}`}>
                     <SettingsHint />
                 </div>
             </div>
