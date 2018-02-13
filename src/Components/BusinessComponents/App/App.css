@@ -24,7 +24,6 @@ a {
 
 .container {
   width: 100%;
-  height: 100%;
   margin-right: auto;
   margin-left: auto; }
   @media (min-width: 576px) {
@@ -56,9 +55,6 @@ a {
   .btn:hover, .btn:focus {
     background: #25b37d;
     border-color: #25b37d; }
-
-.App {
-  overflow: hidden; }
 
 .App, #root {
   height: 100%; }

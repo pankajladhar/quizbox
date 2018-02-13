@@ -5,6 +5,9 @@
   display: flex;
   align-content: center;
   margin-bottom: 20px; }
+  @media (max-width: 760px) {
+    .Answer {
+      margin-bottom: 0; } }
   .Answer:hover {
     border: 1px #fff solid; }
   .Answer.checked {

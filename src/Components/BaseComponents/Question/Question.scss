@@ -4,6 +4,10 @@
     display: flex;
     width: 100%;
     min-height: 500px;
+    
+    @media (max-width: 760px) { 
+      flex-direction: column;
+    }
   
     .Question--Panel {
       display: flex;
@@ -12,12 +16,20 @@
       font-weight: normal;
       line-height: 1.5;
       flex: 1;
+      @media (max-width: 760px) { 
+        flex: none;
+      }
     }
   
     .Question__LeftPanel {
       padding: 20px 30px;
       background-color: #349284;
       font-size: 36px;
+      @media (max-width: 760px) { 
+        padding: 10px;
+        font-size: 18px;
+        font-weight: normal;
+      }
     }
   
     .Question__RightPanel {
@@ -25,6 +37,10 @@
       background-color: #263545;
       font-size: 30px;
       padding: 20px;
+      @media (max-width: 760px) { 
+        padding: 10px;
+        font-size: 20px;
+      }
     }
 
   }
@@ -35,5 +51,12 @@
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
+    @media (max-width: 760px) { 
+      position: static;
+      bottom: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+    }
   }
 }
