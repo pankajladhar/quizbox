@@ -5,6 +5,7 @@ import { WriteInFirebase } from './../../../Firebase';
 import { isRequired, isURL } from './../../../Validations';
 
 import TextBox from './../../BaseComponents/TextBox';
+import Banner from './../../BaseComponents/Banner';
 import Button from './../../BaseComponents/Button';
 import Label from './../../BaseComponents/Label';
 import FormField from './../../BaseComponents/FormField';
@@ -20,6 +21,7 @@ class Settings extends PureComponent {
             quizTitle: "QuizBox",
             authorName: "",
             showConfiguration: false,
+            showBanner: false,
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
@@ -29,10 +31,24 @@ class Settings extends PureComponent {
 
     handleSaveClick(e) {
         e.preventDefault();
-        console.log(this.state)
-        /*WriteInFirebase(this.state, "settings").then((snap) => {
-            console.log(snap.key)
-        });*/
+        let data = {
+            authorName: this.state.authorName,
+            noOfques: this.state.noOfques,
+            point: this.state.point,
+            quesUrl:this.state.quesUrl,
+            quizName: this.state.quizTitle,
+            views: 0
+        }
+        WriteInFirebase(data, "settings").then((snap) => {
+            this.setState({
+                showBanner: true,
+                authorName: "",
+                noOfques:"",
+                point:'',
+                quesUrl:'',
+                quizTitle:''
+            });
+        });
     }
 
     handleOnBlur(e) {
@@ -189,6 +205,9 @@ class Settings extends PureComponent {
     render() {
         return (
             <div className="Settings">
+                {this.state.showBanner && <Banner>
+                    Your quiz has been created succesfuly. Click on trying exisitng tab.
+                </Banner>}
                 <div className="ConfigureInfo__Settings">
                     <Button className="btn"
                         onClick={this.handleClickConfigureBtn}

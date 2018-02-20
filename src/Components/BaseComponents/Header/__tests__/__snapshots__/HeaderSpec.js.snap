@@ -26,28 +26,44 @@ exports[`Header renders correctly 1`] = `
         </h1>
       </a>
     </div>
-    <nav
-      className="Navigation"
+    <div
+      className="Navigation Navigation--Closed"
     >
-      <ul>
-        <li>
-          <a
-            href="/configure"
-            onClick={[Function]}
-          >
-            Configure Quiz
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            onClick={[Function]}
-          >
-            Sample
-          </a>
-        </li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li>
+            <a
+              href="/configure"
+              onClick={[Function]}
+            >
+              Configure Quiz
+            </a>
+          </li>
+          <li>
+            <a
+              href="/try"
+              onClick={[Function]}
+            >
+              Try Existing 
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button
+        className="toggleButton"
+        onClick={[Function]}
+      >
+        <span
+          className="line"
+        />
+        <span
+          className="line"
+        />
+        <span
+          className="line"
+        />
+      </button>
+    </div>
   </header>
 </div>
 `;

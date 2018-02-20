@@ -21,6 +21,9 @@ exports[`Results renders correctly 1`] = `
       50
        %
     </span>
+    <span>
+      Time Taken : 
+    </span>
     <button
       className="Button btn"
       disabled={undefined}
@@ -53,6 +56,9 @@ exports[`Results renders correctly with result list 1`] = `
     >
       50
        %
+    </span>
+    <span>
+      Time Taken : 
     </span>
     <button
       className="Button btn"

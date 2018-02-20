@@ -7,6 +7,9 @@ exports[`Loader renders correctly 1`] = `
   <div
     className="Loader__Content"
   >
+    <div
+      className="spinner"
+    />
     quiz is loading please wait ....
   </div>
 </div>

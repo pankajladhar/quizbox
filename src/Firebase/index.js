@@ -23,6 +23,7 @@ let UpdateInFirebase = (dbRef, key, obj) => {
 }
 
 let WriteInFirebase = (data, dbRef) => {
+    console.log(data)
     return FirebaseReact.database().ref(dbRef).push(data);
 }
 
