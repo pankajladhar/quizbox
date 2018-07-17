@@ -7,7 +7,8 @@
   color: #fff;
   width: 100%; }
   .Home h1 {
-    font-size: 60px; }
+    font-size: 60px;
+    transition: all .3s ease; }
     @media (max-width: 576px) {
       .Home h1 {
         font-size: 45px;
@@ -15,6 +16,7 @@
         margin-bottom: 20px; } }
   .Home h2 {
     font-size: 30px;
+    transition: all .3s ease;
     line-height: 1;
     margin-bottom: 40px; }
   .Home a {

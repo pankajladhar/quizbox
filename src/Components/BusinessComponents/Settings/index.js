@@ -11,6 +11,7 @@ import Label from './../../BaseComponents/Label';
 import FormField from './../../BaseComponents/FormField';
 import SettingsHint from './../../BaseComponents/SettingsHint'
 import Error from './../../BaseComponents/Error';
+import Modal from './../../BaseComponents/Modal';
 
 import './Settings.css';
 
@@ -22,11 +23,19 @@ class Settings extends PureComponent {
             authorName: "",
             showConfiguration: false,
             showBanner: false,
+            isModalOpen: false,
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
         this.handleClickConfigureBtn = this.handleClickConfigureBtn.bind(this);
+        this.handleModalClose = this.handleModalClose.bind(this);
+    }
+
+    handleModalClose() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
     }
 
     handleSaveClick(e) {
@@ -35,18 +44,19 @@ class Settings extends PureComponent {
             authorName: this.state.authorName,
             noOfques: this.state.noOfques,
             point: this.state.point,
-            quesUrl:this.state.quesUrl,
+            quesUrl: this.state.quesUrl,
             quizName: this.state.quizTitle,
             views: 0
         }
         WriteInFirebase(data, "settings").then((snap) => {
             this.setState({
+                isModalOpen: true,
                 showBanner: true,
                 authorName: "",
-                noOfques:"",
-                point:'',
-                quesUrl:'',
-                quizTitle:''
+                noOfques: "",
+                point: '',
+                quesUrl: '',
+                quizTitle: ''
             });
         });
     }
@@ -205,9 +215,9 @@ class Settings extends PureComponent {
     render() {
         return (
             <div className="Settings">
-                {this.state.showBanner && <Banner>
+                {/* {this.state.showBanner && <Banner>
                     Your quiz has been created succesfuly. Click on trying exisitng tab.
-                </Banner>}
+                </Banner>} */}
                 <div className="ConfigureInfo__Settings">
                     <Button className="btn"
                         onClick={this.handleClickConfigureBtn}
@@ -266,11 +276,11 @@ class Settings extends PureComponent {
                     <div className="float-right">
                         <Button className="btn"
                             type="submit"
-                            disabled={
-                                !(this.state.quesUrlErrorClass === "TextBox--NoError"
-                                    && this.state.noOfQuestionsErrorClass === "TextBox--NoError"
-                                    && this.state.pointErrorClass === "TextBox--NoError")
-                            }
+                            // disabled={
+                            //     !(this.state.quesUrlErrorClass === "TextBox--NoError"
+                            //         && this.state.noOfQuestionsErrorClass === "TextBox--NoError"
+                            //         && this.state.pointErrorClass === "TextBox--NoError")
+                            // }
                             onClick={this.handleSaveClick}
                             value="Save" />
                     </div>
@@ -280,6 +290,17 @@ class Settings extends PureComponent {
                 <div className={`Settings__Hint ${this.state.showConfiguration ? "show" : "hide"}`}>
                     <SettingsHint />
                 </div>
+                {this.state.isModalOpen && <Modal handleModalClose={this.handleModalClose}>
+                    <div className="QuizSuccessModal">
+                        <span className="QuizSuccessModal__Title"> Your quiz is successfully created. </span>
+                        <a className="QuizSuccessModal__Link"
+                            target="_blacnk"
+                            href="http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek">
+                            http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek
+                         </a>
+                        This URL is also listed under <strong><em>Try Exisitng</em></strong> section.
+                    </div>
+                </Modal>}
             </div>
         );
     }

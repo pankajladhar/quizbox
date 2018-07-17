@@ -10,6 +10,7 @@
 
   h1 {
     font-size: 60px;
+    transition: all .3s ease;
     @media (max-width: 576px) {
       font-size: 45px;
       line-height: 1;
@@ -19,6 +20,7 @@
 
   h2 {
     font-size: 30px;
+    transition: all .3s ease;
     line-height: 1;
     margin-bottom: 40px;
   }

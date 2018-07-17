@@ -58,6 +58,22 @@
         transform: translateX(0px);
       }
     }
-   
+  }
+}
+
+.QuizSuccessModal {
+  font-size: 20px;
+  .QuizSuccessModal__Title {
+    font-size: 30px;
+  }
+  .QuizSuccessModal__Link {
+    color: #2fe09d;
+    font-size: 20px;
+    display: block;
+    padding: 20px 0 20px;
+    line-height: 1.2;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
