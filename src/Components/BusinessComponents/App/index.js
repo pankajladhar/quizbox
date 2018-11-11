@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, BrowserRouter, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Settings from './../../BusinessComponents/Settings'
 import GithubConfig from './../../BusinessComponents/GithubConfig'
 import Home from './../../BusinessComponents/Home'

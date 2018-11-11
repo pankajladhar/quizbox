@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<div
+  className="Home"
+>
+  <h1>
+    Quizbox - Online quiz builder
+  </h1>
+  <h2>
+    Build your own quiz and share with others
+  </h2>
+  <a
+    href="/configure"
+    onClick={[Function]}
+  >
+    Configure Quiz
+  </a>
+</div>
+`;

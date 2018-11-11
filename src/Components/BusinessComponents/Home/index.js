@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -14,9 +13,5 @@ class Home extends PureComponent {
         );
     }
 }
-
-Home.propTypes = {
-
-};
 
 export default Home;
