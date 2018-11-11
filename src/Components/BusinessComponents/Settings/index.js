@@ -5,7 +5,6 @@ import { WriteInFirebase } from './../../../Firebase';
 import { isRequired, isURL } from './../../../Validations';
 
 import TextBox from './../../BaseComponents/TextBox';
-import Banner from './../../BaseComponents/Banner';
 import Button from './../../BaseComponents/Button';
 import Label from './../../BaseComponents/Label';
 import FormField from './../../BaseComponents/FormField';
@@ -30,6 +29,25 @@ class Settings extends PureComponent {
         this.handleSaveClick = this.handleSaveClick.bind(this);
         this.handleClickConfigureBtn = this.handleClickConfigureBtn.bind(this);
         this.handleModalClose = this.handleModalClose.bind(this);
+        this.renderModal = this.renderModal.bind(this);
+    }
+
+    renderModal() {
+        return (
+            <Modal handleModalClose={this.handleModalClose}>
+                <div className="QuizSuccessModal">
+                    <span className="QuizSuccessModal__Title">
+                        Your quiz is successfully created.
+                    </span>
+                    <a className="QuizSuccessModal__Link"
+                        target="_blacnk"
+                        href="http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek">
+                        http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek
+                        </a>
+                    This URL is also listed under <strong><em>Try Exisitng</em></strong> section.
+                </div>
+            </Modal>
+        )
     }
 
     handleModalClose() {
@@ -175,33 +193,23 @@ class Settings extends PureComponent {
         let elemValue = e.target.value;
         switch (elemName) {
             case "QuizTitle":
-                this.setState({
-                    quizTitle: elemValue
-                })
+                this.setState({ quizTitle: elemValue })
                 break;
 
             case "QuestionUrl":
-                this.setState({
-                    quesUrl: elemValue
-                })
+                this.setState({ quesUrl: elemValue })
                 break;
 
             case "NoofQuestions":
-                this.setState({
-                    noOfques: elemValue
-                })
+                this.setState({ noOfques: elemValue })
                 break;
 
             case "Point":
-                this.setState({
-                    point: elemValue
-                })
+                this.setState({ point: elemValue })
                 break;
 
             case "AuthorName":
-                this.setState({
-                    authorName: elemValue
-                })
+                this.setState({ authorName: elemValue })
                 break;
         }
     }
@@ -215,14 +223,11 @@ class Settings extends PureComponent {
     render() {
         return (
             <div className="Settings">
-                {/* {this.state.showBanner && <Banner>
-                    Your quiz has been created succesfuly. Click on trying exisitng tab.
-                </Banner>} */}
-                <div className="ConfigureInfo__Settings">
+                {/* <div className="ConfigureInfo__Settings">
                     <Button className="btn"
                         onClick={this.handleClickConfigureBtn}
                         value="How to configure" />
-                </div>
+                </div> */}
 
                 <form onSubmit={this.handleSaveClick}>
                     <FormField>
@@ -273,34 +278,23 @@ class Settings extends PureComponent {
                             id="AuthorName" />
                     </FormField>
 
-                    <div className="float-right">
-                        <Button className="btn"
-                            type="submit"
-                            // disabled={
-                            //     !(this.state.quesUrlErrorClass === "TextBox--NoError"
-                            //         && this.state.noOfQuestionsErrorClass === "TextBox--NoError"
-                            //         && this.state.pointErrorClass === "TextBox--NoError")
-                            // }
-                            onClick={this.handleSaveClick}
-                            value="Save" />
-                    </div>
+
+                    <Button className="btn"
+                        type="submit"
+                        disabled={
+                            !(this.state.quesUrlErrorClass === "TextBox--NoError"
+                                && this.state.noOfQuestionsErrorClass === "TextBox--NoError"
+                                && this.state.pointErrorClass === "TextBox--NoError")
+                        }
+                        onClick={this.handleSaveClick}
+                        value="Save" />
 
                 </form>
 
                 <div className={`Settings__Hint ${this.state.showConfiguration ? "show" : "hide"}`}>
                     <SettingsHint />
                 </div>
-                {this.state.isModalOpen && <Modal handleModalClose={this.handleModalClose}>
-                    <div className="QuizSuccessModal">
-                        <span className="QuizSuccessModal__Title"> Your quiz is successfully created. </span>
-                        <a className="QuizSuccessModal__Link"
-                            target="_blacnk"
-                            href="http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek">
-                            http://pankajladhar.github.io/quizbox/quiz/-LAwHoQ8IPBpEeSbdsek
-                         </a>
-                        This URL is also listed under <strong><em>Try Exisitng</em></strong> section.
-                    </div>
-                </Modal>}
+                {this.state.isModalOpen && this.renderModal()}
             </div>
         );
     }
