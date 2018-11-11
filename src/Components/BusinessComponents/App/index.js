@@ -13,10 +13,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={(props) => <Layout className="home"><Home /></Layout>} />
-          <Route exact path="/configure" render={(props) => <Layout><Settings /></Layout>} />
-          <Route exact path="/try" render={(props) => <Layout><ExistingQuiz /></Layout>} />
-          <Route path="/configure/github" render={(props) => <Layout><GithubConfig /></Layout>} />
+          <Route exact path="/" render={() => <Layout className="home"><Home /></Layout>} />
+          <Route exact path="/configure" render={() => <Layout><Settings /></Layout>} />
+          <Route exact path="/try" render={() => <Layout><ExistingQuiz /></Layout>} />
+          <Route path="/configure/github" render={() => <Layout><GithubConfig /></Layout>} />
           <Route path="/quiz/:quizID" component={Quiz} />
         </div>
       </Router>
