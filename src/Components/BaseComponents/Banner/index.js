@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Banner.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./Banner.scss";
 
-class Banner extends Component {
-    render() {
-        return (
-            <div className={`Banner Banner--${this.props.type}`}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
+const Banner = props => {
+  const { type, children } = props;
+  return <div className={`Banner Banner--${type}`}>{children}</div>;
+};
 
 Banner.propTypes = {
-    type: PropTypes.oneOf(['Info']),
-    children: PropTypes.any.isRequired,
+  type: PropTypes.oneOf(["Info"]),
+  children: PropTypes.any.isRequired
 };
 
 Banner.defaultProps = {
-    type: "Info"
+  type: "Info"
 };
 
 export default Banner;
