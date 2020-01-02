@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Error.scss';
-
-class Error extends Component {
-    render() {
-        return (
-            <div className="Error">
-                {this.props.children}
-            </div>
-        );
-    }
-}
+import React from "react";
+import PropTypes from "prop-types";
+import "./Error.scss";
+const Error = props => {
+  const { children } = props;
+  return <div className="Error">{children}</div>;
+};
 
 Error.propTypes = {
-
+  children: PropTypes.any.isRequired
 };
 
 export default Error;
