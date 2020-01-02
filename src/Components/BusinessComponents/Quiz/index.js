@@ -8,7 +8,7 @@ import Question from './../../BaseComponents/Question';
 import Header from './../../BaseComponents/Header';
 import Timer from './../../BaseComponents/Timer';
 import Results from './../../BaseComponents/Results';
-import './Quiz.css';
+import './Quiz.scss';
 
 class Quiz extends PureComponent {
     constructor(props) {

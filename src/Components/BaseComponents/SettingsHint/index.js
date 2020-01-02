@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import data from './data';
-import './SettingsHint.css';
+import './SettingsHint.scss';
 
 
 class SettingsHint extends Component {

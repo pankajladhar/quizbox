@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import './TextBox.css';
+import './TextBox.scss';
 
 class TextBox extends PureComponent {
     constructor(props) {

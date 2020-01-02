@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './Button.css';
+import './Button.scss';
 
 class Button extends PureComponent {
     constructor(props) {

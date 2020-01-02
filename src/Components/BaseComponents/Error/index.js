@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Error.css';
+import './Error.scss';
 
 class Error extends Component {
     render() {

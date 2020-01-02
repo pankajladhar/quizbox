@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './../../BaseComponents/Header';
 import logo from './Logo.svg';
-import './Layout.css';
+import './Layout.scss';
 
 const Layout = props => {
   return (

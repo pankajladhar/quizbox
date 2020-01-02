@@ -12,7 +12,7 @@ import SettingsHint from './../../BaseComponents/SettingsHint'
 import Error from './../../BaseComponents/Error';
 import Modal from './../../BaseComponents/Modal';
 
-import './Settings.css';
+import './Settings.scss';
 
 class Settings extends PureComponent {
     constructor(props) {

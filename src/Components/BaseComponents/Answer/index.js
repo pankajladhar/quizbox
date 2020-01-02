@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './../RadioButton';
-import './Answer.css';
+import './Answer.scss';
 
 class Answer extends Component {
     render() {

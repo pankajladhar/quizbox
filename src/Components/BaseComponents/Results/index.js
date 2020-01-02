@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from './../Button';
 import ResultList from './../ResultList';
 
-import './Results.css'
+import './Results.scss'
 
 class Results extends PureComponent {
     constructor(props) {

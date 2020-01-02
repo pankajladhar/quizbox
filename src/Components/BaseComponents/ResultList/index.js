@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ResultList.css'
+import './ResultList.scss'
 
 class ResultList extends Component {
     render() {

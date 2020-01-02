@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Banner.css';
+import './Banner.scss';
 
 class Banner extends Component {
     render() {

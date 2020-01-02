@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './Loader.css';
+import './Loader.scss';
 
 class Loader extends PureComponent {
     render() {

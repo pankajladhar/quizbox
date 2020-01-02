@@ -6,7 +6,7 @@ import Home from './../../BusinessComponents/Home'
 import Quiz from './../../BusinessComponents/Quiz';
 import ExistingQuiz from './../../BusinessComponents/ExistingQuiz';
 import Layout from './../Layout';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {

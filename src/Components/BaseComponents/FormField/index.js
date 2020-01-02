@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import './FormField.css';
+import './FormField.scss';
 
 class FormField extends PureComponent {
     render() {

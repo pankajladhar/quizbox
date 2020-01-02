@@ -4,7 +4,7 @@ import { ReadFromFirebase } from './../../../Firebase';
 import _map from 'lodash/map';
 
 import Loader from '../../BaseComponents/Loader';
-import './ExistingQuiz.css';
+import './ExistingQuiz.scss';
 
 class ExistingQuiz extends Component {
     constructor(props) {

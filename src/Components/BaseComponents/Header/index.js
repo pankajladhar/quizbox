@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Navigation from './../Navigation';
-import './Header.css'
+import './Header.scss'
 
 class Header extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './GithubConfig.css'
+import './GithubConfig.scss'
 import step1 from './images/step-1.png';
 import step2 from './images/step-2.png';
 import step3 from './images/step-3.png';
