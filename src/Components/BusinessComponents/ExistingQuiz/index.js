@@ -7,7 +7,6 @@ import Loader from '../../BaseComponents/Loader';
 import './ExistingQuiz.css';
 
 class ExistingQuiz extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -40,7 +39,7 @@ class ExistingQuiz extends Component {
                     {
                         _map(this.state.existingQuiz, (item, key) => {
                             return (
-                                <li className="ExistingQuiz__List__Item">
+                                <li key={key} className="ExistingQuiz__List__Item">
                                     <span className="ExistingQuiz__List__QuizDetails">
                                         <span className="ExistingQuiz__List__QuizName">
                                             <span className="ExistingQuiz__List__Tick">
