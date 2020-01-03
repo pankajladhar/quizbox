@@ -1,29 +1,22 @@
-import firebase from 'firebase';
-import Configuration from './../Configuration';
+import { firebase as FirebaseReact } from "./../hooks/useFirebase";
 
-
-let config = {
-    apiKey: Configuration.FireBaseConfiguration.apiKey,
-    authDomain: Configuration.FireBaseConfiguration.authDomain,
-    databaseURL: Configuration.FireBaseConfiguration.databaseURL,
-    projectId: Configuration.FireBaseConfiguration.projectId,
-    storageBucket: Configuration.FireBaseConfiguration.storageBucket,
-    messagingSenderId: Configuration.FireBaseConfiguration.messagingSenderId
+let ReadFromFirebase = dbRef => {
+  return FirebaseReact.database()
+    .ref(dbRef)
+    .once("value");
 };
 
-let FirebaseReact = firebase.initializeApp(config);
-
-let ReadFromFirebase = (dbRef) => {
-    return FirebaseReact.database().ref(dbRef).once('value')
-}
-
 let UpdateInFirebase = (dbRef, key, obj) => {
-    return FirebaseReact.database().ref(`${dbRef}/${key}`).update(obj);
-    // return FirebaseReact.database().ref(dbRef).once('value')
-}
+  return FirebaseReact.database()
+    .ref(`${dbRef}/${key}`)
+    .update(obj);
+  // return FirebaseReact.database().ref(dbRef).once('value')
+};
 
 let WriteInFirebase = (data, dbRef) => {
-    return FirebaseReact.database().ref(dbRef).push(data);
-}
+  return FirebaseReact.database()
+    .ref(dbRef)
+    .push(data);
+};
 
 export { ReadFromFirebase, UpdateInFirebase, WriteInFirebase };
